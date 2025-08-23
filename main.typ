@@ -17,6 +17,5 @@
 = Abstract
 #include "sections/abstract.typ"
 
-
 #outline(title: "Table of contents")
 #pagebreak()
