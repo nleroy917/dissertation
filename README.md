@@ -5,8 +5,8 @@ This is my dissertation for my PhD at the University of Virginia on the Atacform
 To build the dissertation, you need three things:
 
 1. `typst` installed,
-2. My dissertation template, and
-3. My references
+2. my dissertation template, and
+3. my references
 
 ### Install typst
 You can install `typst` using their [installation guide](https://github.com/typst/typst?tab=readme-ov-file#installation). Its probably easiest to just grab from crates.io if you have the Rust toolchain installed:
