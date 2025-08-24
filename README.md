@@ -8,6 +8,12 @@ To build the dissertation, you need three things:
 2. my dissertation template, and
 3. my references
 
+Once you have all three, you can build the dissertation using the following command:
+
+```bash
+typst compile main.typ out.pdf
+```
+
 ### Install typst
 You can install `typst` using their [installation guide](https://github.com/typst/typst?tab=readme-ov-file#installation). Its probably easiest to just grab from crates.io if you have the Rust toolchain installed:
 ```bash
