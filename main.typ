@@ -11,9 +11,11 @@
 
 = Acknowledgements
 #include "sections/acknowledgements.typ"
+#pagebreak()
 
 = Abstract
 #include "sections/abstract.typ"
+#pagebreak()
 
 = Table of contents
 #outline(title: none)
