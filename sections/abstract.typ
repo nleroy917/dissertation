@@ -1,2 +1,7 @@
-#lorem(400)
+Inside each and every cell in our body is about 6 feet of DNA, tightly coiled and packed into chromosomes. Perhaps even more interestingly, is the fact that this DNA is identical in every cell, and yet, it gives rise to the incredible diversity of cell types, tissues, and organs that make up our bodies. So a natural and interesting question to ask is: how does the same DNA lead to such different outcomes? If we consider the central dogma of molecular biology, which describes the flow of genetic information from DNA to RNA to protein, we can begin to understand the mechanisms at play. Put another way: it is the expression of genes that determines cell identity and function. But this simply kicks the can down the road, as we are then left with the question of how gene expression is regulated.
+
+Indeed it is the regulation of gene expression that allows for the remarkable diversity of cell types and functions in our bodies. This regulation occurs at multiple levels, including transcriptional, post-transcriptional, translational, and post-translational modifications. Each of these layers of regulation provides opportunities for cells to respond to internal and external cues, ultimately shaping their identity and function.
+
+To that end, understanding the intricate network of regulatory elements and factors that govern gene expression is crucial. This includes not only the DNA sequences that control transcription but also the myriad of proteins, non-coding RNAs, and epigenetic modifications that fine-tune gene activity in response to various signals.
+
 #pagebreak()
