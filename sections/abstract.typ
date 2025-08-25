@@ -18,3 +18,5 @@ In Chapter 4, we introduce Atacformer, a novel transformer-based architecture sp
 
 // chapter 5 limitations, future directions and more general commentary on these models as a whole?
 Finally, in Chapter 5, we discuss the limitations of our proposed methods and outline potential directions for future research. We emphasize the need for more comprehensive benchmarking and the integration of multi-omics data to enhance the robustness and applicability of transfer learning approaches in scATAC-seq analysis.
+
+Together, these chapters provide a comprehensive overview of the current landscape of scATAC-seq analysis and the potential of transfer learning to address its challenges.

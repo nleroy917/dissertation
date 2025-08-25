@@ -9,12 +9,12 @@
   dedication: "To my family and friends, for their unwavering support and encouragement.",
 )
 
-= Acknowledgements
-#include "sections/acknowledgements.typ"
-#pagebreak()
-
 = Abstract
 #include "sections/abstract.typ"
+#pagebreak()
+
+= Acknowledgements
+#include "sections/acknowledgements.typ"
 #pagebreak()
 
 = Table of contents
