@@ -7,4 +7,7 @@
 == A brief history of gene regulation and the study of chromatin accessibility
 #include "background.typ"
 
+== Computational challenges in single-cell ATAC-seq analysis
+#include "computational-challenges.typ"
+
 #pagebreak()

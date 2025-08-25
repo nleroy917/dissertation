@@ -37,7 +37,7 @@ The completion of the Human Genome Project @Lander2001 enabled the development o
   caption: "Summary of epigenomic assays and their biological insights"
 ) <epigenetic-methods-overview>
 
-=== Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq)
+=== Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq) and its single-cell counterpart
 
 Among these assays, ATAC-seq has emerged as a widely adopted method for studying gene regulation due to its simplicity, speed, and ability to generate high-resolution maps of chromatin accessibility from small amounts of input material. Unlike earlier methods, it requires no antibodies or extensive sample prep, making it especially well-suited for rare or primary cells. Its adaptability to single-cell formats has enabled high-throughput profiling of cell-type–specific regulatory landscapes, fueling discoveries in development, cancer, and immunology. By revealing open chromatin regions that mark active promoters, enhancers, and other regulatory elements, ATAC-seq provides critical insights into how gene expression is controlled across diverse biological contexts @Buenrostro2013.
 
@@ -50,3 +50,6 @@ The fundamental goal behind ATAC-seq is to identify regions of open chromatin ac
 
 These DNA fragments are then PCR-amplified to add sample-specific barcodes and sequencing primers, followed by high-throughput sequencing, typically using Illumina platforms (@atac-seq-overview\c). The resulting sequencing reads are aligned to a reference genome, and peaks of read enrichment are identified using computational tools such as MACS2 @Zhang2008. These peaks correspond to regions of accessible chromatin, providing insights into the regulatory landscape of the cell type under study (@atac-seq-overview\d).
 
+ATAC-seq remains a staple in epigenomic research, however, its adaptation to single-cell formats (scATAC-seq) has revolutionized the field by enabling the profiling of chromatin accessibility at the resolution of individual cells @Buenrostro2015 @Cusanovich2015. This advancement allows researchers to dissect the regulatory heterogeneity _within_ seemingly homogeneous cell populations, identify rare cell types, and trace developmental trajectories based on chromatin dynamics. In scATAC-seq, individual cells are isolated using microfluidics or droplet-based platforms, and the ATAC-seq protocol is adapted to work with the limited DNA content of single cells. The resulting data provides cell-type–specific accessibility profiles that can be integrated with single-cell RNA sequencing to create comprehensive regulatory maps linking chromatin state to gene expression across diverse cell types and developmental stages.
+
+While scATAC-seq has opened new avenues for understanding gene regulation, it also presents unique challenges, such as increased technical variability and the need for specialized computational tools to analyze the resulting data. Addressing these challenges will be crucial for fully realizing the potential of single-cell epigenomics in uncovering the complexities of gene regulation.
