@@ -5,10 +5,9 @@
   author: "Nathan J. LeRoy",
   university: "University of Virginia",
   school: "School of Engineering and Applied Science",
-  degree: "Doctor of Philosophy"
+  degree: "Doctor of Philosophy",
+  dedication: "To my family and friends, for their unwavering support and encouragement.",
 )
-
-#include "sections/dedication.typ"
 
 = Acknowledgements
 #include "sections/acknowledgements.typ"
@@ -24,25 +23,9 @@
 #outline(title: none, target: figure.where(kind: image))
 #pagebreak()
 
-#show: chapter.with(
-  title: "Chapter 1",
-  number: 1,
-)
-== Introduction
-#include "sections/chapter1/introduction.typ"
-== Results
-#include "sections/chapter1/results.typ"
-#pagebreak()
-
-#show: chapter.with(
-  title: "Chapter 2",
-  number: 2,
-)
-== Introduction
-#include "sections/chapter2/introduction.typ"
-== Results
-#include "sections/chapter2/results.typ"
-#pagebreak()
+// chapters
+#include "sections/chapter1/__main.typ"
+#include "sections/chapter2/__main.typ"
 
 = References
 #bibliography(
