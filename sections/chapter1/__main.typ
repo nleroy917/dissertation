@@ -7,6 +7,4 @@
 == A brief history of gene regulation and the study of chromatin accessibility
 #include "background.typ"
 
-== ATAC-seq
-#include "atac-seq.typ"
 #pagebreak()
