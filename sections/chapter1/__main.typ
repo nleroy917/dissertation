@@ -1,12 +1,12 @@
 #import "@local/dissertation:0.0.1": chapter
 
 #show: chapter.with(
-  title: "Chapter 1",
+  title: "Chapter 1: Introduction to ATAC-seq and current analytical challenges",
   number: 1,
 )
 == Introduction
-#include "introduction.typ"
+#include "background.typ"
 
 == Results
-#include "results.typ"
+#include "atac-seq.typ"
 #pagebreak()
