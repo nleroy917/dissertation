@@ -4,9 +4,9 @@
   title: "Chapter 1: Introduction to ATAC-seq and current analytical challenges",
   number: 1,
 )
-== Introduction
+== A brief history of gene regulation and the study of chromatin accessibility
 #include "background.typ"
 
-== Results
+== ATAC-seq
 #include "atac-seq.typ"
 #pagebreak()

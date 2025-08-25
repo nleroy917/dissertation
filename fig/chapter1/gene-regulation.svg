@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="174mm"
+   height="95mm"
+   viewBox="0 0 174 95"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed, 2023-07-21)"
+   sodipodi:docname="gene-regulation.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="2.6255629"
+     inkscape:cx="336.68971"
+     inkscape:cy="148.53958"
+     inkscape:window-width="2560"
+     inkscape:window-height="1387"
+     inkscape:window-x="0"
+     inkscape:window-y="899"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     showgrid="false" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#fed7aa;stroke-width:0.199241;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect1"
+       width="163.6385"
+       height="4"
+       x="6.5455403"
+       y="22.033081" />
+    <rect
+       style="fill:#818cf8;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2"
+       width="3.9619339"
+       height="4"
+       x="21.471233"
+       y="22.033081" />
+    <rect
+       style="fill:#86efac;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5"
+       width="3.9619339"
+       height="4"
+       x="29.150768"
+       y="22.033081" />
+    <rect
+       style="fill:#a78bfa;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9"
+       width="3.9619339"
+       height="4"
+       x="36.830303"
+       y="22.033081" />
+    <rect
+       style="fill:#fb7185;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9-5"
+       width="20.712809"
+       height="4.000001"
+       x="112.3774"
+       y="22.033079" />
+    <rect
+       style="fill:#84cc16;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9-5-5"
+       width="37.164295"
+       height="4.000001"
+       x="133.05156"
+       y="22.033079" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="115.53529"
+       y="24.91675"
+       id="text2"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="115.53529"
+         y="24.91675">promoter</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="147.72612"
+       y="24.597218"
+       id="text2-8"><tspan
+         sodipodi:role="line"
+         id="tspan2-3"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="147.72612"
+         y="24.597218">gene</tspan></text>
+    <path
+       style="fill:none;stroke:#1c1917;stroke-width:0.4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="m 19.697768,26.551278 v 1.26754 H 41.9512 v -1.257072"
+       id="path3"
+       sodipodi:nodetypes="cccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="23.359051"
+       y="31.612484"
+       id="text2-5"><tspan
+         sodipodi:role="line"
+         id="tspan2-6"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="23.359051"
+         y="31.612484">enhancer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="107.8079"
+       y="46.02161"
+       id="text2-5-23"><tspan
+         sodipodi:role="line"
+         id="tspan2-6-3"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="107.8079"
+         y="46.02161">distal enhancer</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="107.8079"
+         y="48.84383"
+         id="tspan6">elements</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="44.483158"
+       y="13.678074"
+       id="text2-5-2"><tspan
+         sodipodi:role="line"
+         id="tspan2-6-7"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="44.483158"
+         y="13.678074">activators</tspan></text>
+    <rect
+       style="fill:#818cf8;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-1"
+       width="3.9619339"
+       height="4"
+       x="25.640726"
+       y="7.1676064" />
+    <rect
+       style="fill:#86efac;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-5-3"
+       width="3.9619339"
+       height="4"
+       x="30.528002"
+       y="13.682876" />
+    <rect
+       style="fill:#a78bfa;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-5-9-9"
+       width="3.9619339"
+       height="4"
+       x="34.070564"
+       y="7.6268077" />
+    <path
+       style="fill:none;stroke:#1c1917;stroke-width:0.4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="m 35.748544,9.3065506 7.803319,3.4681434"
+       id="path4" />
+    <path
+       style="fill:none;stroke:#1c1917;stroke-width:0.4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="m 32.898693,16.122127 10.541255,-3.29169"
+       id="path4-4"
+       sodipodi:nodetypes="cc" />
+    <ellipse
+       style="fill:#f472b6;stroke-width:0.170323;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="path1"
+       cx="116.11552"
+       cy="12.818288"
+       rx="10.059383"
+       ry="4.6979718" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="91.517921"
+       y="9.1683769"
+       id="text2-6"><tspan
+         sodipodi:role="line"
+         id="tspan2-2"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="91.517921"
+         y="9.1683769">transcription</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="91.517921"
+         y="11.990597"
+         id="tspan5">factor</tspan></text>
+    <path
+       style="fill:none;stroke:#1c1917;stroke-width:0.4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="m 97.961931,9.9814613 7.803319,3.4681437"
+       id="path4-2" />
+    <g
+       id="g5">
+      <ellipse
+         style="fill:#78716c;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+         id="path1-0"
+         cy="12.471406"
+         cx="150.26077"
+         ry="6.5348496"
+         rx="10.34198" />
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;line-height:1;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+         x="150.22632"
+         y="11.77343"
+         id="text2-8-6"><tspan
+           sodipodi:role="line"
+           id="tspan2-3-5"
+           style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;fill:#fafaf9;stroke-width:0.264583"
+           x="150.22632"
+           y="11.77343">RNA</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;fill:#fafaf9;stroke-width:0.264583"
+           x="150.22632"
+           y="14.59565"
+           id="tspan4">polymerase</tspan></text>
+    </g>
+    <g
+       id="g5-7"
+       transform="translate(-42.237473,78.873263)">
+      <ellipse
+         style="fill:#78716c;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+         id="path1-0-3"
+         cy="8.7672424"
+         cx="150.26077"
+         ry="6.5348496"
+         rx="10.34198" />
+      <text
+         xml:space="preserve"
+         style="font-size:2.82222px;line-height:1;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+         x="150.22632"
+         y="8.0692663"
+         id="text2-8-6-4"><tspan
+           sodipodi:role="line"
+           id="tspan2-3-5-3"
+           style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;fill:#fafaf9;stroke-width:0.264583"
+           x="150.22632"
+           y="8.0692663">RNA</tspan><tspan
+           sodipodi:role="line"
+           style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;fill:#fafaf9;stroke-width:0.264583"
+           x="150.22632"
+           y="10.891486"
+           id="tspan4-0">polymerase</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#fed7aa;stroke-width:4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="M 152.44374,55.700511 H 90.273108 c 0,0 -13.180168,1.401128 -25.419815,-6.811219 -13.19388,-8.852601 -18.619542,-7.99539 -18.619542,-7.99539 0,0 -22.093607,0.311027 -23.150241,17.079331 -1.241734,19.705751 7.291615,22.106146 7.291615,22.106146 0,0 5.777388,2.149644 28.438723,2.149644 h 93.618482"
+       id="path5"
+       sodipodi:nodetypes="ccscscsc" />
+    <ellipse
+       style="fill:#f472b6;stroke-width:0.340057;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="path1-4"
+       cx="119.96698"
+       cy="39.720802"
+       rx="19.552662"
+       ry="9.6345673"
+       transform="matrix(0.96168755,0.27414788,-0.24423008,0.96971731,0,0)" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="105.91042"
+       y="69.253952"
+       id="text2-6-5"><tspan
+         sodipodi:role="line"
+         id="tspan2-2-7"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="105.91042"
+         y="69.253952">transcription</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="105.91042"
+         y="72.076172"
+         id="tspan5-1">factor</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:2.82222px;line-height:1;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="105.91042"
+         y="74.898392"
+         id="tspan7">complex</tspan></text>
+    <rect
+       style="fill:#818cf8;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-0"
+       width="3.9619339"
+       height="4"
+       x="97.431076"
+       y="53.753204" />
+    <rect
+       style="fill:#86efac;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-6"
+       width="3.9619339"
+       height="4"
+       x="105.11061"
+       y="53.753204" />
+    <rect
+       style="fill:#a78bfa;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9-4"
+       width="3.9619339"
+       height="4"
+       x="112.79015"
+       y="53.753204" />
+    <path
+       style="fill:none;stroke:#1c1917;stroke-width:0.4;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       d="m 96.106364,51.797746 v -1.26754 H 118.3598 v 1.257072"
+       id="path3-7"
+       sodipodi:nodetypes="cccc" />
+    <rect
+       style="fill:#fb7185;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9-5-3"
+       width="20.712809"
+       height="4.000001"
+       x="96.843102"
+       y="80.229027" />
+    <rect
+       style="fill:#84cc16;stroke-width:0.195935;stroke-linecap:square;stroke-miterlimit:99.9;paint-order:stroke markers fill"
+       id="rect2-5-9-5-5-2"
+       width="37.164295"
+       height="4.000001"
+       x="117.51727"
+       y="80.229027" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="100.00099"
+       y="83.112701"
+       id="text2-68"><tspan
+         sodipodi:role="line"
+         id="tspan2-9"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="100.00099"
+         y="83.112701">promoter</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.82222px;line-height:1.25;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.264583"
+       x="132.19182"
+       y="82.793167"
+       id="text2-8-1"><tspan
+         sodipodi:role="line"
+         id="tspan2-3-4"
+         style="font-size:2.82222px;stroke-width:0.264583"
+         x="132.19182"
+         y="82.793167">gene</tspan></text>
+    <rect
+       style="fill:#818cf8;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-1-7"
+       width="3.9619339"
+       height="4"
+       x="97.441185"
+       y="57.246632" />
+    <rect
+       style="fill:#86efac;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-5-3-3"
+       width="3.9619339"
+       height="4"
+       x="105.13326"
+       y="57.254818" />
+    <rect
+       style="fill:#a78bfa;stroke:#1c1917;stroke-width:0.5;stroke-linecap:square;stroke-miterlimit:99.9;stroke-dasharray:none;paint-order:stroke markers fill"
+       id="rect2-5-9-9-2"
+       width="3.9619339"
+       height="4"
+       x="112.82688"
+       y="57.400082" />
+  </g>
+</svg>
