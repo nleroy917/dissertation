@@ -9,6 +9,32 @@ While the DNA sequence itself is largely invariant across cell types, its interp
 )
 
 === The rise of epigenomics assays
-The completion of the Human Genome Project @Lander2001 enabled the development of various 'omics technologies to investigate this phenomenon. Simultaneously, genome-wide association studies (GWAS) revealed that approximately 90% of disease-associated single nucleotide polymorphisms (SNPs) are located in non-coding regions of the genome, highlighting the crucial importance of studying gene regulation and epigenomics in human health and disease for driving this biological heterogeneity @Farh2015 @French2020. This discovery catalyzed the development of technologies to study regulatory elements, including DNA methylation analysis through bisulfite sequencing @Frommer1992 @Li2011, chromatin immunoprecipitation sequencing (ChIP-seq) @Robertson2007, DNase hypersensitivity sequencing (DNase-seq) @Boyle2008, and the Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq) @Buenrostro2013, with modern single-cell variants now available for many approaches @Rotem2015 @Smallwood2014 @Buenrostro2015.
+The completion of the Human Genome Project @Lander2001 enabled the development of various 'omics technologies which, in turn, facilitated the exploration of gene regulation and epigenomics. Simultaneously, genome-wide association studies (GWAS) revealed that approximately 90% of disease-associated single nucleotide polymorphisms (SNPs) are located in non-coding regions of the genome, underscoring the crucial importance of studying gene regulation and epigenomics in human health and disease for driving this biological heterogeneity @Farh2015 @French2020. This discovery catalyzed the development of technologies to study regulatory elements, including DNA methylation analysis through bisulfite sequencing @Frommer1992 @Li2011, chromatin immunoprecipitation sequencing (ChIP-seq) @Robertson2007, DNase hypersensitivity sequencing (DNase-seq) @Boyle2008, Formaldehyde-Assisted Isolation of Regulatory Elements @Giresi2007, CUT&TAG @Kaya-Okur2019, Chromatin Conformation Capture @Belton2012,  and the Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq) @Buenrostro2013, with modern single-cell variants now available for many approaches @Rotem2015 @Smallwood2014 @Buenrostro2015.
 
-ATAC-seq has gained widespread adoption due to its technical quality and economic advantages, but this popularity has brought numerous computational and analytical challenges in studying the resulting data.
+#figure(
+  table(
+    columns: (0.5fr, auto),
+    align: horizon,
+    table.header(
+      [Epigenomic assay], [What it measures],
+    ),
+    [DNA Methylation\
+    (Bisulfite-seq)],
+    [Cytosine methylation status via bisulfite conversion],
+    [DNase-seq],
+    [Chromatin accessibility via DNase I cleavage],
+    [ChIP-seq],
+    [Protein-DNA binding via immunoprecipitation],
+    [ATAC-seq],
+    [Chromatin accessibility via Tn5 transposase insertion],
+    [FAIRE-seq],
+    [Nucleosome-depleted regions via phenol-chloroform extraction],
+    [CUT&Tag],
+    [Targeted chromatin profiling via antibody-Tn5 fusion],
+    [Hi-C],
+    [3D chromatin conformation via proximity ligation],
+  ),
+  caption: "Summary of epigenomic assays and their biological insights"
+)
+
+Among these assays, ATAC-seq has emerged as a widely adopted method for studying gene regulation due to its simplicity, speed, and ability to generate high-resolution maps of chromatin accessibility from small amounts of input material. Unlike earlier methods, it requires no antibodies or extensive sample prep, making it especially well-suited for rare or primary cells. Its adaptability to single-cell formats has enabled high-throughput profiling of cell-type–specific regulatory landscapes, fueling discoveries in development, cancer, and immunology. By revealing open chromatin regions that mark active promoters, enhancers, and other regulatory elements, ATAC-seq provides critical insights into how gene expression is controlled across diverse biological contexts.
