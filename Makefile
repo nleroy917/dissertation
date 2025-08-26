@@ -71,5 +71,11 @@ ch3:
 		--input partial=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_CH3.pdf"
 
+release:
+	typst \
+		compile main.typ
+		--input release=true \
+		"out/pdfs/$(GITHASH)_$(DATE)_RELEASE.pdf"
+
 typos:
 	typos sections/*
