@@ -17,7 +17,8 @@ jobs:
         run: |
           mkdir -p ~/.local/share/typst/packages/local/dissertation
           git clone https://github.com/nleroy917/dissertation-typst-template.git ~/.local/share/typst/packages/local/dissertation
-        
+          ls ~/.local/share/typst/packages/local/dissertation
+
       - name: Typst
         uses: lvignoli/typst-action@main
         with:
