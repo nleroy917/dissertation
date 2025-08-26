@@ -12,16 +12,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Setup typst
+        uses: typst-community/setup-typst@v4
 
       - name: Grab dissertation template
         run: |
           mkdir -p ~/.local/share/typst/packages/local/dissertation
           git clone https://github.com/nleroy917/dissertation-typst-template.git ~/.local/share/typst/packages/local/dissertation
 
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: main.typ
+      - name: Build document
+        run: |
+          typst compile main.typ main.pdf
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
