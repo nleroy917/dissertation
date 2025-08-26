@@ -35,7 +35,7 @@
 
 // chapters
 #include "sections/chapter1/__main.typ"
-// #include "sections/chapter2/__main.typ"
+#include "sections/chapter2/__main.typ"
 
 = References
 #bibliography(
