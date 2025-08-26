@@ -21,6 +21,13 @@ jobs:
           mkdir -p ~/.local/share/typst/packages/local/dissertation
           git clone https://github.com/nleroy917/dissertation-typst-template.git ~/.local/share/typst/packages/local/dissertation
 
+      - name: Fetch references
+        run: |
+          curl -H "Authorization: token {{ secrets.GH.PAT }}" \
+          -H "Accept: application/vnd.github.v3.raw" \
+          -L -o refs.bib \
+          "https://api.github.com/repos/nleroy917/references/contents/refs.bib"
+
       - name: Build document
         run: |
           typst compile main.typ main.pdf
@@ -41,3 +48,6 @@ jobs:
         with:
           name: "${{ github.ref_name }} — ${{ env.DATE }}"
           files: main.pdf
+
+
+      
