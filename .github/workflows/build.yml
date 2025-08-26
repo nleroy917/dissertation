@@ -23,9 +23,7 @@ jobs:
 
       - name: Fetch references
         run: |
-          curl -H "Authorization: token ${{ secrets.GH_PAT }}" \
-          -H "Accept: application/vnd.github.v3.raw" \
-          "https://api.github.com/repos/nleroy917/references/contents/refs.bib" > refs.bib
+          curl "https://raw.githubusercontent.com/nleroy917/references/refs/heads/master/refs.bib" > refs.bib
 
       - name: Build document
         run: |
