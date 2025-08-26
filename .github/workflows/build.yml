@@ -15,9 +15,8 @@ jobs:
 
       - name: Grab dissertation template
         run: |
-          mkdir -p ~/.local/share/typst/packages/local/dissertation
-          git clone https://github.com/nleroy917/dissertation-typst-template.git ~/.local/share/typst/packages/local/dissertation
-          ls ~/.local/share/typst/packages/local/dissertation
+          mkdir -p $XDG_DATA_HOME/typst/packages/local/dissertation
+          git clone https://github.com/nleroy917/dissertation-typst-template.git $XDG_DATA_HOME/typst/packages/local/dissertation
 
       - name: Typst
         uses: lvignoli/typst-action@main
