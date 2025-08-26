@@ -36,6 +36,7 @@
 // chapters
 #include "sections/chapter1/__main.typ"
 #include "sections/chapter2/__main.typ"
+#include "sections/chapter3/__main.typ"
 
 = References
 #bibliography(
@@ -43,3 +44,6 @@
   style: "nature",
   title: none
 )
+
+= Appendix
+#include "sections/appendix/__main.typ"
