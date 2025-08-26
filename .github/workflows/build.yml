@@ -47,6 +47,3 @@ jobs:
         with:
           name: "${{ github.ref_name }} — ${{ env.DATE }}"
           files: main.pdf
-
-
-      
