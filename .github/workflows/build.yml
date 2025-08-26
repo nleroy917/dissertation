@@ -23,7 +23,7 @@ jobs:
 
       - name: Fetch references
         run: |
-          curl "https://raw.githubusercontent.com/nleroy917/references/refs/heads/master/refs.bib"
+          curl "https://raw.githubusercontent.com/nleroy917/references/refs/heads/master/refs.bib" -o refs.bib --create-dirs
 
       - name: Build document
         run: |
