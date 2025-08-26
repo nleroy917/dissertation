@@ -2,7 +2,7 @@
 A scATAC-seq dataset is often represented as a binary matrix where rows correspond to cells, and columns correspond to genomic loci (@scatac-seq-overview). These matrices are characterized by their high dimensionality and inherent sparsity, posing significant challenges for computational analysis. Because each cell only contains two copies of each chromosome, and because the assay measures accessibility at upwards of 1 million genomic loci, the resulting data matrix is often extremely sparse and high-dimensional. This sparsity can make it difficult to accurately infer regulatory interactions and identify cell-type-specific patterns of chromatin accessibility. Furthermore, the high dimensionality of scATAC-seq data can make traditional statistical methods less effective @Cusanovich2015.
 
 #figure(
-  image("../../fig/introduction/scatac-seq.svg"),
+  image("/fig/introduction/scatac-seq.svg"),
   caption: [Schematic of a scATAC-seq count matrix.]
 ) <scatac-seq-overview>
 

@@ -3,7 +3,7 @@
 === Overview of the scEmbed architecture 
 
 #figure(
-  image("../../fig/scembed/overview.svg"),
+  image("/fig/scembed/overview.svg"),
   caption: [An overview of the scEmbed architecture and training procedure.]
 ) <scembed-overview>
 #figure-caption-extended(caption: [
@@ -16,7 +16,7 @@ scEmbed adapts our previous work, Region2Vec @Gharavi2021a, to single cells. The
 === scEmbed model validation and benchmarking
 
 #figure(
-  image("../../fig/scembed/benchmarking.svg"),
+  image("/fig/scembed/benchmarking.svg"),
   caption: [Benchmarking shows that scEmbed is competitive with existing approaches.]
 ) <scembed-benchmarking>
 #figure-caption-extended(caption: [
@@ -32,7 +32,7 @@ Next we wodnered if we could leverage scEmbed for transfer learning tasks, which
 === Using scEmbed to transfer knowledge of genomic region co-occurrence to unseen datasets 
 
 #figure(
-  image("../../fig/scembed/projection.svg"),
+  image("/fig/scembed/projection.svg"),
   caption: [scEmbed enables knowledge transfer to unseen datasets.]
 ) <scembed-projection>
 #figure-caption-extended(caption: [
@@ -48,7 +48,7 @@ We next assessed this projection process by asking whether scEmbed could cluster
 We found that the projected-cell analysis showed no marked differences in clustering proficiency when compared to the embeddings produced by conventional model training. The UMAP plots were visually similar (@scembed-projection \D), and the actual evaluation of clustering using the RAGI score showed that the projected dataset may even outperform the model trained on the original data when clustered using either hierarchical clustering or kmeans (@scembed-projection \E). In addition, the time to analyze the new dataset is reduced from hours to minutes, since only overlap analysis and vector algebra is required prior to clustering. 
 
 #figure(
-  image("../../fig/scembed/annotation.svg"),
+  image("/fig/scembed/annotation.svg"),
   caption: [Pre-trained embedding models can be exploited for cell-type annotation tasks.]
 ) <scembed-annotation>
 #figure-caption-extended(caption: [
