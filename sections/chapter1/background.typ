@@ -4,7 +4,7 @@ Inside the nucleus of all 30 trillion of our cells is about six feet of DNA tigh
 While the DNA sequence itself is largely invariant across cell types, its interpretation is highly dynamic and context-specific. Cells achieve this through complex layers of gene regulation, which govern when, where, and to what extent specific genes are transcribed into RNA. At the heart of this regulatory machinery are elements like promoters, which initiate transcription near gene start sites, and enhancers, which can activate transcription at distant genomic loci in a cell-type–specific manner @Levine2003. These elements recruit combinations of transcription factors, cofactors, and RNA polymerases to modulate gene expression. Importantly, these interactions are influenced by the chromatin landscape, which determines the physical accessibility of DNA to regulatory proteins @Ong2011 (@gene-regulation). Thus, biological heterogeneity arises not only from differences in genetic code but from the selective and combinatorial usage of regulatory elements across different cell types, developmental stages, and environmental conditions.
 
 #figure(
-  image("../../fig/chapter1/gene-regulation.svg"),
+  image("../../fig/introduction/gene-regulation.svg"),
   caption: [A schematic representation of gene regulation.]
 ) <gene-regulation>
 
@@ -42,7 +42,7 @@ The completion of the Human Genome Project @Lander2001 enabled the development o
 Among these assays, ATAC-seq has emerged as a widely adopted method for studying gene regulation due to its simplicity, speed, and ability to generate high-resolution maps of chromatin accessibility from small amounts of input material. Unlike earlier methods, it requires no antibodies or extensive sample prep, making it especially well-suited for rare or primary cells. Its adaptability to single-cell formats has enabled high-throughput profiling of cell-type–specific regulatory landscapes, fueling discoveries in development, cancer, and immunology. By revealing open chromatin regions that mark active promoters, enhancers, and other regulatory elements, ATAC-seq provides critical insights into how gene expression is controlled across diverse biological contexts @Buenrostro2013.
 
 #figure(
-  image("../../fig/chapter1/atac-seq.svg"),
+  image("../../fig/introduction/atac-seq.svg"),
   caption: [Overview of the ATAC-seq procedure.]
 ) <atac-seq-overview>
 

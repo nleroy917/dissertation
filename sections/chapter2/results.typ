@@ -3,10 +3,9 @@
 === Overview of the scEmbed architecture 
 
 #figure(
-  image("../../fig/chapter2/overview.svg"),
+  image("../../fig/scembed/overview.svg"),
   caption: [An overview of the scEmbed architecture and training procedure.]
 ) <scembed-overview>
-
 #figure-caption-extended(caption: [
 *a.* scEmbed leverages Word2Vec as its core model. Word2Vec learns to predict words given a semantic context. Similarly, scEmbed learns to predict genomic regions, given a genomic context. This is unsupervised, and uses the patterns of genomic region co-occurrence to learn representations of individual regions. *b.* Overview of the scEmbed learning process, starting with scATAC-seq data.  *c.* Once region embeddings are learned, they can be used to construct cell embeddings by averaging the embeddings of regions accessible in each cell. We use cell embeddings for downstream tasks of clustering and cell-type prediction.
 ])
@@ -17,7 +16,7 @@ scEmbed adapts our previous work, Region2Vec @Gharavi2021a, to single cells. The
 === scEmbed model validation and benchmarking
 
 #figure(
-  image("../../fig/chapter2/benchmarking.svg"),
+  image("../../fig/scembed/benchmarking.svg"),
   caption: [Benchmarking shows that scEmbed is competitive with existing approaches.]
 ) <scembed-benchmarking>
 #figure-caption-extended(caption: [
@@ -33,7 +32,7 @@ Next we wodnered if we could leverage scEmbed for transfer learning tasks, which
 === Using scEmbed to transfer knowledge of genomic region co-occurrence to unseen datasets 
 
 #figure(
-  image("../../fig/chapter2/projection.svg"),
+  image("../../fig/scembed/projection.svg"),
   caption: [scEmbed enables knowledge transfer to unseen datasets.]
 ) <scembed-projection>
 #figure-caption-extended(caption: [
@@ -49,7 +48,7 @@ We next assessed this projection process by asking whether scEmbed could cluster
 We found that the projected-cell analysis showed no marked differences in clustering proficiency when compared to the embeddings produced by conventional model training. The UMAP plots were visually similar (@scembed-projection \D), and the actual evaluation of clustering using the RAGI score showed that the projected dataset may even outperform the model trained on the original data when clustered using either hierarchical clustering or kmeans (@scembed-projection \E). In addition, the time to analyze the new dataset is reduced from hours to minutes, since only overlap analysis and vector algebra is required prior to clustering. 
 
 #figure(
-  image("../../fig/chapter2/annotation.svg"),
+  image("../../fig/scembed/annotation.svg"),
   caption: [Pre-trained embedding models can be exploited for cell-type annotation tasks.]
 ) <scembed-annotation>
 #figure-caption-extended(caption: [
