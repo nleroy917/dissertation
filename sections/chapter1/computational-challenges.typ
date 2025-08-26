@@ -28,4 +28,4 @@ While powerful, these methods also face challenges. Namely, SCALE is designed to
 
 These limitations highlight the need for more flexible and efficient approaches to scATAC-seq analysis that still leverage the power of deep learning.
 
-=== Large, pre-trained foundation models
+// === Large, pre-trained foundation models

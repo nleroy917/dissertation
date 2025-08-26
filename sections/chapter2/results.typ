@@ -1,13 +1,36 @@
 #import "@local/dissertation:0.0.1": figure-caption-extended
 
+=== Overview of the scEmbed architecture 
+
+#figure(
+  image("../../fig/chapter2/overview.svg"),
+  caption: [An overview of the scEmbed architecture and training procedure.]
+) <scembed-overview>
+
+#figure-caption-extended(caption: [
+*a.* scEmbed leverages Word2Vec as its core model. Word2Vec learns to predict words given a semantic context. Similarly, scEmbed learns to predict genomic regions, given a genomic context. This is unsupervised, and uses the patterns of genomic region co-occurrence to learn representations of individual regions. *b.* Overview of the scEmbed learning process, starting with scATAC-seq data.  *c.* Once region embeddings are learned, they can be used to construct cell embeddings by averaging the embeddings of regions accessible in each cell. We use cell embeddings for downstream tasks of clustering and cell-type prediction.
+])
+
+scEmbed adapts our previous work, Region2Vec @Gharavi2021a, to single cells. The model is a modified unsupervised word2vec @Mikolov2013a model that learns to predict genomic region co-accessibility (@scembed-overview \A). Briefly, scEmbed treats each cell as a document and its accessible regions as words. Context is simulated through by shuffling these regions (@scembed-overview \B). After training, cell embeddings are constructed by averaging region vectors for each cell, which are then used for tasks like clustering, analysis, or transfer learning (@scembed-overview \C). 
+
+
+=== scEmbed model validation and benchmarking
+
 #figure(
   image("../../fig/chapter2/benchmarking.svg"),
   caption: [Benchmarking shows that scEmbed is competitive with existing approaches.]
 ) <scembed-benchmarking>
-
 #figure-caption-extended(caption: [
 *a.* Diagram showing 3 steps of the benchmarking process. *b.* UMAP plot of the cell-embeddings produced by scEmbed. *c.* Results of the benchmarking pipeline. scEmbed is competitive with the top methods. We tested three clustering methods: Hierarchical clustering (HC), K means, and Louvain. The clustering results were evaluated using three metrics: Adjusted mutual information (AMI), adjusted rand index (ARI), and homogeneity. *d.* UMAP plots visually showing the resultant clusters of cell embeddings produced by scEmbed following data loss. *e.* Line plots showing the change in three clustering metrics (ARI, AMI, and Homogeneity) as a function of dropout rate. Plots show that scEmbed retains its ability to accurately cluster single cells up to nearly 80% data loss.
 ])
+
+To validate scEmbed, we followed an earlier approach @Chen2019a to benchmark it on clustering tasks using published reference scATAC data from hematopoietic cells @Buenrostro2018 (@scembed-benchmarking \A). We trained scEmbed for 100 epochs then used the resulting region embeddings to construct cell embeddings. Visually, scEmbed clusters cells of the same type (@scembed-benchmarking \B). We clustered the cell embeddings with three clustering methods: K-means, hierarchical clustering (HC), and Louvain clustering. The clusters were then compared to ground truth labels using three metrics: adjusted rand index (ARI), the adjusted mutual information score (AMI), and the homogeneity score (see Methods). scEmbed performs similar to the best-performing scATAC-seq methods, including SCALE, scBasset, cisTopic, and SnapATAC (@scembed-benchmarking \C). It does so with almost no preprocessing of the data and a completely unsupervised learning workflow. 
+
+=== scEmbed is robust to data loss
+
+Next we wodnered if we could leverage scEmbed for transfer learning tasks, which can result in a loss of information. As such, we sought to evaluate its ability to cluster data with increasing levels of information loss. To test scEmbed’s robustness to missing data, we trained the model on datasets of increasing sparsity. Starting with the Buenrostro2018 dataset (2.8% non-zero) @Buenrostro2018, we randomly dropped non-zero values in the binary accessibility matrix until approximately 80% of the data was lost. A dropout rate of 80% resulted in a matrix that was 0.5% non-zero. Even at a drop-out rate of 80%, scEmbed was able to visually cluster cells of the same type (@scembed-benchmarking \D). To quanify this, we computed three scores for each dropout dataset: 1) Adjusted Rand Index (ARI), 2) Adjusted Mutual Information (AMI), and 3) Homogeneity scores. We found that scEmbed retained clustering accuracy comparable to other scATAC-seq analysis methods @Chen2019a even when faced with 80% data loss (Fig. @scembed-benchmarking \E). These findings confirm that scEmbed can learn rich biological knowledge, even for the most sparse datasets. The ability to handle sparseness is a critical characteristic of scATAC-seq analysis, and particularly so for scEmbed, which can be used to transfer information from existing models, as we describe next. 
+
+=== Using scEmbed to transfer knowledge of genomic region co-occurrence to unseen datasets 
 
 #figure(
   image("../../fig/chapter2/projection.svg"),
@@ -16,21 +39,6 @@
 #figure-caption-extended(caption: [
   Transfer learning with scEmbed occurs in three steps. *a.* Diagram showing the high-level workflow of other scATAC-seq methods (top) compared to scEmbed (bottom) *b.* Diagram of the overlap analysis procedure. Using interval overlap analysis, a new cell from a new dataset (blue) can be cast in the feature space of the data used for the pre-trained model (red). *c.* Diagram showing the computation of embeddings for new, unseen data. This is achieved using basic average pooling of region embeddings. *d.* UMAP plots of both projected (right) and unprojected (left) datasets. The plots show nearly identical clustering of embeddings learned from the original dataset versus projection. *e.* RAGI score plots for both the original dataset embeddings and projected cell embeddings. RAGI scores are computed for three clustering methods: Hierarchical clustering, K-means, and Louvain.
 ])
-
-=== Overview of the scEmbed architecture 
-
-scEmbed adapts our previous work, Region2Vec @Gharavi2021a, to single cells. The model is a modified unsupervised word2vec @Mikolov2013a model that learns to predict genomic region co-accessibility (@scembed-overview \A). Briefly, scEmbed treats each cell as a document and its accessible regions as words. Context is simulated through by shuffling these regions (@scembed-overview \B). After training, cell embeddings are constructed by averaging region vectors for each cell, which are then used for tasks like clustering, analysis, or transfer learning (@scembed-overview \C). 
-
-
-=== scEmbed model validation and benchmarking
-
-To validate scEmbed, we followed an earlier approach @Chen2019a to benchmark it on clustering tasks using published reference scATAC data from hematopoietic cells @Buenrostro2018 (@scembed-benchmarking \A). We trained scEmbed for 100 epochs then used the resulting region embeddings to construct cell embeddings. Visually, scEmbed clusters cells of the same type (@scembed-benchmarking \B). We clustered the cell embeddings with three clustering methods: K-means, hierarchical clustering (HC), and Louvain clustering. The clusters were then compared to ground truth labels using three metrics: adjusted rand index (ARI), the adjusted mutual information score (AMI), and the homogeneity score (see Methods). scEmbed performs similar to the best-performing scATAC-seq methods, including SCALE, scBasset, cisTopic, and SnapATAC (@scembed-benchmarking \C). It does so with almost no preprocessing of the data and a completely unsupervised learning workflow. 
-
-=== scEmbed is robust to data loss 
-
-Next we wodnered if we could leverage scEmbed for transfer learning tasks, which can result in a loss of information. As such, we sought to evaluate its ability to cluster data with increasing levels of information loss. To test scEmbed’s robustness to missing data, we trained the model on datasets of increasing sparsity. Starting with the Buenrostro2018 dataset (2.8% non-zero) @Buenrostro2018, we randomly dropped non-zero values in the binary accessibility matrix until approximately 80% of the data was lost. A dropout rate of 80% resulted in a matrix that was 0.5% non-zero. Even at a drop-out rate of 80%, scEmbed was able to visually cluster cells of the same type (@scembed-benchmarking \D). To quanify this, we computed three scores for each dropout dataset: 1) Adjusted Rand Index (ARI), 2) Adjusted Mutual Information (AMI), and 3) Homogeneity scores. We found that scEmbed retained clustering accuracy comparable to other scATAC-seq analysis methods @Chen2019a even when faced with 80% data loss (Fig. @scembed-benchmarking \E). These findings confirm that scEmbed can learn rich biological knowledge, even for the most sparse datasets. The ability to handle sparseness is a critical characteristic of scATAC-seq analysis, and particularly so for scEmbed, which can be used to transfer information from existing models, as we describe next. 
-
-=== Using scEmbed to transfer knowledge of genomic region co-occurrence to unseen datasets 
 
 A key innovation in scEmbed is that it uses a two-step training process, rather than a single step, like many other methods (@scembed-projection \A). In the first step, scEmbed learns embeddings of genomic regions rather than cells. In the second step, the region embeddings are then used to build cell embeddings. In a typical analysis, both steps would use the same input data, corresponding to a typical one-step analysis. Alternatively, the region embeddings can also be used to build cell embeddings for new datasets. This transfer approach allows scEmbed to take advantage of pre-trained reference models. We call this “projection” because we “project” new data into the latent space of the original dataset, creating cell embeddings for new data using a pre-trained model. Projection occurs in three steps: First, we train a model on reference data to produce region embeddings for each region in the reference consensus region set. Second, we take a new single-cell dataset and map the regions to the reference consensus region set using region overlaps (@scembed-projection \B). This represents each single cell in the new dataset using the set of regions from the reference dataset, for which we also have region embeddings from the reference model. Finally, we compute the average of all region embeddings for each cell in the new dataset (@scembed-projection \C).  This approach leverages the information from a larger atlas of accessibility data to analyze a new dataset. In fact, the original training data need not come from scATAC-seq at all. Using this approach, a model trained with bulk ATAC-seq could similarly be used to project scATAC-seq data. This provides an enormous advantage by utilizing the patterns of region co-occurrence from the vast volume of publicly available region set data to inform cell embeddings of single-cell data. 
 
