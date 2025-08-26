@@ -9,7 +9,7 @@ While the DNA sequence itself is largely invariant across cell types, its interp
 ) <gene-regulation>
 
 === The rise of epigenomics assays
-The completion of the Human Genome Project @Lander2001 enabled the development of various 'omics technologies which, in turn, facilitated the exploration of gene regulation and epigenomics. Simultaneously, genome-wide association studies (GWAS) revealed that approximately 90% of disease-associated single nucleotide polymorphisms (SNPs) are located in non-coding regions of the genome, underscoring the crucial importance of studying gene regulation and epigenomics in human health and disease for driving this biological heterogeneity @Farh2015 @French2020. This discovery catalyzed the development of technologies to study regulatory elements, including DNA methylation analysis through bisulfite sequencing @Frommer1992 @Li2011, chromatin immunoprecipitation sequencing (ChIP-seq) @Robertson2007, DNase hypersensitivity sequencing (DNase-seq) @Boyle2008, Formaldehyde-Assisted Isolation of Regulatory Elements @Giresi2007, CUT&TAG @Kaya-Okur2019, Chromatin Conformation Capture @Belton2012,  and the Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq) @Buenrostro2013, with modern single-cell variants now available for many approaches @Rotem2015 @Smallwood2014 @Buenrostro2015. These methods are summarized in (@epigenetic-methods-overview).
+The completion of the Human Genome Project @Lander2001 enabled the development of various 'omics technologies which, in turn, facilitated the exploration of gene regulation and epigenomics. Simultaneously, genome-wide association studies (GWAS) revealed that approximately 90% of disease-associated single nucleotide polymorphisms (SNPs) are located in non-coding regions of the genome, underscoring the crucial importance of studying gene regulation and epigenomics in human health and disease for driving this biological heterogeneity @Farh2015 @French2020. This discovery catalyzed the development of technologies to study regulatory elements, including DNA methylation analysis through bisulfite sequencing @Frommer1992 @Li2011, chromatin immunoprecipitation sequencing (ChIP-seq) @Robertson2007, DNase hypersensitivity sequencing (DNase-seq) @Boyle2008, Formaldehyde-Assisted Isolation of Regulatory Elements @Giresi2007 (FAIRE-seq), CUT&TAG @Kaya-Okur2019, Chromatin Conformation Capture @Belton2012 (Hi-C),  and the Assay for Transposase-Accessible Chromatin using sequencing (ATAC-seq) @Buenrostro2013, with modern single-cell variants now available for many approaches @Rotem2015 @Smallwood2014 @Buenrostro2015. These methods are summarized in @epigenetic-methods-overview.
 
 #figure(
   table(
@@ -18,8 +18,7 @@ The completion of the Human Genome Project @Lander2001 enabled the development o
     table.header(
       [Epigenomic assay], [What it measures],
     ),
-    [DNA Methylation\
-    (Bisulfite-seq)],
+    [DNA Methylation],
     [Cytosine methylation status via bisulfite conversion],
     [DNase-seq],
     [Chromatin accessibility via DNase I cleavage],

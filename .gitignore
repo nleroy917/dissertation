@@ -1,3 +1,7 @@
+# standard things
 .vscode/
 out/*
 inspo/
+
+# personal notes
+.notes
