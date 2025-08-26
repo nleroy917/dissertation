@@ -1,9 +1,13 @@
+#import "@local/dissertation:0.0.1": figure-caption-extended
+
 #figure(
   image("../../fig/chapter2/overview.svg"),
   caption: [An overview of the scEmbed architecture and training procedure.]
 ) <scembed-overview>
 
+#figure-caption-extended(caption: [
 *a.* scEmbed leverages Word2Vec as its core model. Word2Vec learns to predict words given a semantic context. Similarly, scEmbed learns to predict genomic regions, given a genomic context. This is unsupervised, and uses the patterns of genomic region co-occurrence to learn representations of individual regions. *b.* Overview of the scEmbed learning process, starting with scATAC-seq data.  *c.* Once region embeddings are learned, they can be used to construct cell embeddings by averaging the embeddings of regions accessible in each cell. We use cell embeddings for downstream tasks of clustering and cell-type prediction.
+])
 
 Data from the single-cell assay for transposase-accessible chromatin using sequencing (scATAC-seq) is now widely available. This data is used to uncover complex regulatory networks at the single-cell level, elucidating the cellular mechanisms that drive cell-to-cell heterogeneity. The power of scATAC-seq data has motivated the development of new computational approaches for its analysis @Xiong2019 @Yuan2022 @Schep2017 @BravoGonzález-Blas2019 @Granja2021 @Cusanovich2018 @Ashuach2022 @Li2022 @Fang2021a @Mezger2018 @Baker2019 @Ma2023. Despite these advances, scATAC-seq analysis continues to face two key challenges: the 1) high dimensionality and 2) inherent sparsity of the data @Chen2019a @Baek2020.  
 

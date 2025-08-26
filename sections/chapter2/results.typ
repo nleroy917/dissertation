@@ -1,16 +1,21 @@
+#import "@local/dissertation:0.0.1": figure-caption-extended
+
 #figure(
   image("../../fig/chapter2/benchmarking.svg"),
   caption: [Benchmarking shows that scEmbed is competitive with existing approaches.]
 ) <scembed-benchmarking>
 
+#figure-caption-extended(caption: [
 *a.* Diagram showing 3 steps of the benchmarking process. *b.* UMAP plot of the cell-embeddings produced by scEmbed. *c.* Results of the benchmarking pipeline. scEmbed is competitive with the top methods. We tested three clustering methods: Hierarchical clustering (HC), K means, and Louvain. The clustering results were evaluated using three metrics: Adjusted mutual information (AMI), adjusted rand index (ARI), and homogeneity. *d.* UMAP plots visually showing the resultant clusters of cell embeddings produced by scEmbed following data loss. *e.* Line plots showing the change in three clustering metrics (ARI, AMI, and Homogeneity) as a function of dropout rate. Plots show that scEmbed retains its ability to accurately cluster single cells up to nearly 80% data loss.
+])
 
 #figure(
   image("../../fig/chapter2/projection.svg"),
   caption: [scEmbed enables knowledge transfer to unseen datasets.]
 ) <scembed-projection>
-
-Transfer learning with scEmbed occurs in three steps. *a.* Diagram showing the high-level workflow of other scATAC-seq methods (top) compared to scEmbed (bottom) *b.* Diagram of the overlap analysis procedure. Using interval overlap analysis, a new cell from a new dataset (blue) can be cast in the feature space of the data used for the pre-trained model (red). *c.* Diagram showing the computation of embeddings for new, unseen data. This is achieved using basic average pooling of region embeddings. *d.* UMAP plots of both projected (right) and unprojected (left) datasets. The plots show nearly identical clustering of embeddings learned from the original dataset versus projection. *e.* RAGI score plots for both the original dataset embeddings and projected cell embeddings. RAGI scores are computed for three clustering methods: Hierarchical clustering, K-means, and Louvain.
+#figure-caption-extended(caption: [
+  Transfer learning with scEmbed occurs in three steps. *a.* Diagram showing the high-level workflow of other scATAC-seq methods (top) compared to scEmbed (bottom) *b.* Diagram of the overlap analysis procedure. Using interval overlap analysis, a new cell from a new dataset (blue) can be cast in the feature space of the data used for the pre-trained model (red). *c.* Diagram showing the computation of embeddings for new, unseen data. This is achieved using basic average pooling of region embeddings. *d.* UMAP plots of both projected (right) and unprojected (left) datasets. The plots show nearly identical clustering of embeddings learned from the original dataset versus projection. *e.* RAGI score plots for both the original dataset embeddings and projected cell embeddings. RAGI scores are computed for three clustering methods: Hierarchical clustering, K-means, and Louvain.
+])
 
 === Overview of the scEmbed architecture 
 
@@ -21,14 +26,9 @@ scEmbed adapts our previous work, Region2Vec @Gharavi2021a, to single cells. The
 
 To validate scEmbed, we followed an earlier approach @Chen2019a to benchmark it on clustering tasks using published reference scATAC data from hematopoietic cells @Buenrostro2018 (@scembed-benchmarking \A). We trained scEmbed for 100 epochs then used the resulting region embeddings to construct cell embeddings. Visually, scEmbed clusters cells of the same type (@scembed-benchmarking \B). We clustered the cell embeddings with three clustering methods: K-means, hierarchical clustering (HC), and Louvain clustering. The clusters were then compared to ground truth labels using three metrics: adjusted rand index (ARI), the adjusted mutual information score (AMI), and the homogeneity score (see Methods). scEmbed performs similar to the best-performing scATAC-seq methods, including SCALE, scBasset, cisTopic, and SnapATAC (@scembed-benchmarking \C). It does so with almost no preprocessing of the data and a completely unsupervised learning workflow. 
 
-
-
 === scEmbed is robust to data loss 
 
 Next we wodnered if we could leverage scEmbed for transfer learning tasks, which can result in a loss of information. As such, we sought to evaluate its ability to cluster data with increasing levels of information loss. To test scEmbed’s robustness to missing data, we trained the model on datasets of increasing sparsity. Starting with the Buenrostro2018 dataset (2.8% non-zero) @Buenrostro2018, we randomly dropped non-zero values in the binary accessibility matrix until approximately 80% of the data was lost. A dropout rate of 80% resulted in a matrix that was 0.5% non-zero. Even at a drop-out rate of 80%, scEmbed was able to visually cluster cells of the same type (@scembed-benchmarking \D). To quanify this, we computed three scores for each dropout dataset: 1) Adjusted Rand Index (ARI), 2) Adjusted Mutual Information (AMI), and 3) Homogeneity scores. We found that scEmbed retained clustering accuracy comparable to other scATAC-seq analysis methods @Chen2019a even when faced with 80% data loss (Fig. @scembed-benchmarking \E). These findings confirm that scEmbed can learn rich biological knowledge, even for the most sparse datasets. The ability to handle sparseness is a critical characteristic of scATAC-seq analysis, and particularly so for scEmbed, which can be used to transfer information from existing models, as we describe next. 
-
-
-
 
 === Using scEmbed to transfer knowledge of genomic region co-occurrence to unseen datasets 
 
@@ -44,8 +44,9 @@ We found that the projected-cell analysis showed no marked differences in cluste
   image("../../fig/chapter2/annotation.svg"),
   caption: [Pre-trained embedding models can be exploited for cell-type annotation tasks.]
 ) <scembed-annotation>
-
-*a.* Diagram showing scEmbed’s three projection paths. *b.* Overview of the standard “no-projection” data flow. *c.* Overview of three data flows for new data. EV-projection places the new data in the same latent space as the reference data. *d.* UMAP plot of the reference data embeddings built using the standard workflow. *e.* UMAP plot of the new PBMC data with E-projection. *f.* Plots showing the EV-projection data flow applied to the new PBMC dataset. Grey cells represent the reference topology; colored cells are projected new PBMC data. Separate plots depict individual clusters for visual clarity. *g.* Confusion matrix of scEmbed classification results compared to Cellcano. *h.* UMAP plots showing the cell labels assigned by Cellcano (left) and the cell type labels assigned by scEmbed (right).
+#figure-caption-extended(caption: [
+  *a.* Diagram showing scEmbed’s three projection paths. *b.* Overview of the standard “no-projection” data flow. *c.* Overview of three data flows for new data. EV-projection places the new data in the same latent space as the reference data. *d.* UMAP plot of the reference data embeddings built using the standard workflow. *e.* UMAP plot of the new PBMC data with E-projection. *f.* Plots showing the EV-projection data flow applied to the new PBMC dataset. Grey cells represent the reference topology; colored cells are projected new PBMC data. Separate plots depict individual clusters for visual clarity. *g.* Confusion matrix of scEmbed classification results compared to Cellcano. *h.* UMAP plots showing the cell labels assigned by Cellcano (left) and the cell type labels assigned by scEmbed (right).
+])
 
 === Pre-trained models from reference datasets can be used to annotate cell clusters 
 
