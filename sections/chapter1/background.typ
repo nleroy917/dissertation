@@ -15,7 +15,6 @@ The completion of the Human Genome Project @Lander2001 enabled the development o
   image("/fig/introduction/publication_trends.svg"),
   caption: [Trends in epigenomic assay publications over time. Data from PubMed searches for key epigenomic assays.]
 ) <publication-trends>
-
 ==== DNA methylation analysis through bisulfite sequencing
 DNA methylation is a key epigenetic modification that plays a critical role in regulating gene expression by influencing chromatin structure and transcription factor accessibility @Jones2012 @Smith2013. DNA methylation analysis through bisulfite sequencing allows for the assessment of cytosine methylation status at single-base resolution @Frommer1992 @Li2011. This technique involves treating DNA with bisulfite, which converts unmethylated cytosines to uracils, while leaving methylated cytosines unchanged. Subsequent sequencing of the treated DNA enables the identification of methylated versus unmethylated cytosines, providing insights into the epigenetic regulation of gene expression through DNA methylation patterns.
 
