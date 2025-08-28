@@ -1,3 +1,4 @@
+Below is a summary of the key computational methods discussed in this chapters:
 #figure(
   table(
     columns: (auto, auto, auto, auto, auto),

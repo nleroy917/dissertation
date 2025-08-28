@@ -1,0 +1,7 @@
+This dissertation advances the field of scATAC-seq analysis in three distinct ways:
+
+First, it introduces a novel tokenization technique for training and running scATAC-seq models, along with a suite of high-performance, Rust-based infrastructure to support these methods, including vocabulary builders and fast tokenizers designed to enable highly efficient and scalable data processing.
+
+Second, it presents scEmbed, a shallow neural network based on Word2Vec that provides a proof-of-concept for model sharing and the re-use of pre-trained embeddings, thereby streamlining downstream analysis and reducing computational overhead. We show that pre-trained region embeddings learned with scEmbed can be effectively utilized in various downstream tasks, improving performance and reducing the need for extensive retraining.
+
+Finally, it develops Atacformer, a transformer-based foundation model for chromatin accessibility that incorporates our novel tokenization strategy. This design emphasizes flexibility and efficiency, achieving comparable performance with dramatically fewer parameters than existing approaches. Moreover, our new infrastructure facilitates easier model sharing and deployment. Together, these contributions provide both methodological foundations and practical tools that move the field toward unified, generalizable models for single-cell epigenomic analysis.

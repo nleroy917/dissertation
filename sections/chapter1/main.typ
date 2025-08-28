@@ -13,8 +13,10 @@
 #include "/sections/chapter1/foundation-models.typ"
 
 == Summary of computational methods for scATAC-seq analysis
-Below is a summary of the key computational methods discussed in this chapters:
 #include "/sections/chapter1/summary-of-methods.typ"
+
+== Improving model sharing, efficiency, and flexibility of scATAC-seq foundation models
+#include "/sections/chapter1/thesis-setup.typ"
 
 #pagebreak()
 
