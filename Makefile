@@ -6,6 +6,15 @@ pdf:
 	@[ -d out/pdfs ] || mkdir -p out/pdfs
 	typst compile main.typ "out/pdfs/$(GITHASH)_$(DATE)_MAIN.pdf"
 
+html:
+	@[ -d out ] || mkdir -p out
+	@[ -d out/html ] || mkdir -p out/html
+	typst compile \
+		--features html \
+		-f html main.typ \
+		--input html=true \
+		"out/html/$(GITHASH)_$(DATE)_MAIN.html"
+
 docx:
 	@[ -d out ] || mkdir -p out
 	@[ -d out/docx ] || mkdir -p out/docx

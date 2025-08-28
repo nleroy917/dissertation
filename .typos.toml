@@ -1,3 +1,2 @@
 [files]
-# ignore svg files since its not practical to actually look for typos in them
-extend-exclude=["**/*.svg"]
+extend-exclude=["**/*.svg", "refs.bib"]

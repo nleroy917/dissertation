@@ -18,7 +18,7 @@
 #pagebreak()
 
 = Table of contents
-#outline(title: none)
+#outline(title: none, depth: 3)
 #pagebreak()
 
 = List of figures
