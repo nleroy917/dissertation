@@ -1,9 +1,5 @@
-#import "@local/dissertation:0.0.1": chapter, authors
+#import "@local/dissertation:0.0.1": authors
 
-#show: chapter.with(
-  title: "Chapter 3: Fast clustering and annotation of scATAC-seq data using pretrained region embeddings",
-  number: 3,
-)
 #authors(
   authors: (
         ( name: "Nathan J. LeRoy", me: true, affiliations: [1,2] ),

@@ -30,8 +30,22 @@
 #pagebreak()
 
 // chapters
+#show: chapter.with(
+  title: "Chapter 1: Introduction to gene regulation, ATAC-seq and current analytical challenges",
+  number: 1,
+)
 #include "sections/chapter1/main.typ"
+
+#show: chapter.with(
+  title: "Chapter 2: Methods overview",
+  number: 2,
+)
 #include "sections/chapter2/main.typ"
+
+#show: chapter.with(
+  title: "Chapter 3: Fast clustering and annotation of scATAC-seq data using pretrained region embeddings",
+  number: 3,
+)
 #include "sections/chapter3/main.typ"
 
 = References
