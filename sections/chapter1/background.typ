@@ -40,7 +40,7 @@ Many of the above techniques have modern single-cell variants now available @Rot
 
 #figure(
   table(
-    columns: (0.5fr, auto),
+    columns: (auto, auto),
     align: horizon,
     table.header(
       [Epigenomic assay], [What it measures],

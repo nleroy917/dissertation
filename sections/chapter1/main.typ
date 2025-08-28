@@ -17,6 +17,8 @@
 == Large, pre-trained foundation models for genomic data
 #include "/sections/chapter1/foundation-models.typ"
 
+#include "/sections/chapter1/summary-of-methods.typ"
+
 #pagebreak()
 
 #if sys.inputs.at("partial", default: "false") == "true" [ 
