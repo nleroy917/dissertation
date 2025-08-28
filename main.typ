@@ -22,14 +22,10 @@
 #pagebreak()
 
 = List of figures
-#show outline.entry.where(level: 1): set text(weight: "regular") // dont bold figure list
-#show outline.entry.where(level: 1): set block(above: 0.6em)
 #outline(title: none, target: figure.where(kind: image))
 #pagebreak()
 
 = List of tables
-#show outline.entry.where(level: 1): set text(weight: "regular") // dont bold figure list
-#show outline.entry.where(level: 1): set block(above: 0.6em)
 #outline(title: none, target: figure.where(kind: table))
 #pagebreak()
 
