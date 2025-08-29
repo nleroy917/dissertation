@@ -21,6 +21,26 @@
 )
 
 #figure(
+  table(
+    columns: (auto, auto),
+    align: horizon,
+    table.header(
+      [scEmbed label], [Cellcano label],
+    ),
+    [B1 B], [B cells],
+    [CD4+ T activated], [CD4 T cells],
+    [CD4+ T naive], [CD4 T cells],
+    [CD8+ T], [CD8 T cells],
+    [CD8+ T naive], [CD8 T cells],
+    [CD14+ Mono], [Monocytes],
+    [cDC2 Dendritic cells],
+    [NK NK cells],
+    [Naive CD20+ B], [B cells]
+  ),
+  caption: "Label mapping between scEmbed and cellcano for consistent comparison of classification performance."
+) <scembed-cellcano-label-mapping>
+
+#figure(
   image("/fig/scembed/cellcano-tsne.svg"),
   caption: "Cellcano cell type annotations for PBMC dataset."
 ) <scembed-cellcano-tsne>
