@@ -51,6 +51,17 @@
 #include "sections/scembed/main.typ"
 #pagebreak()
 
+#show: chapter.with(
+  title: "Atacformer: A transformer-based foundation model for analysis and interpretation of ATAC-seq data"
+)
+#include "sections/atacformer/main.typ"
+#pagebreak()
+
+#show: chapter.with(
+  title: "Conclusions and future work"
+)
+#include "sections/conclusions/main.typ"
+#pagebreak()
 
 = References
 #bibliography(

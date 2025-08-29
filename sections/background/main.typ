@@ -18,8 +18,6 @@
 == Improving model sharing, efficiency, and flexibility of scATAC-seq foundation models
 #include "/sections/background/thesis-setup.typ"
 
-#pagebreak()
-
 #if sys.inputs.at("partial", default: "false") == "true" [ 
   = References
   #bibliography(

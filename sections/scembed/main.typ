@@ -28,7 +28,6 @@
 
 == Results
 #include "/sections/scembed/results.typ"
-#pagebreak()
 
 == Discussion and future work
 #include "/sections/scembed/discussion.typ"
