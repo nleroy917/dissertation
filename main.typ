@@ -9,6 +9,7 @@
   dedication: "To my family and friends, for their unwavering support and encouragement.",
 )
 
+// front matter
 = Abstract
 #include "sections/abstract.typ"
 #pagebreak()
@@ -56,6 +57,9 @@
 )
 #pagebreak()
 
+#show: appendix.with(title: "Supplemental figures and tables")
+#include "sections/appendix/figures.typ"
+
 #show: appendix.with(title: "Extended methods")
-#include "sections/appendix/main.typ"
+#include "sections/appendix/methods.typ"
 
