@@ -33,7 +33,7 @@
 #show: chapter.with(
   title: "Introduction to gene regulation, ATAC-seq and current analytical challenges"
 )
-#include "sections/chapter1/main.typ"
+#include "sections/background/main.typ"
 
 
 // #show: chapter.with(
@@ -45,7 +45,7 @@
 #show: chapter.with(
   title: "Fast clustering and annotation of scATAC-seq data using pretrained region embeddings"
 )
-#include "sections/chapter3/main.typ"
+#include "sections/scembed/main.typ"
 
 
 = References
