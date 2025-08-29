@@ -24,11 +24,14 @@
 )
 
 == Introduction to scEmbed
-#include "introduction.typ"
+#include "/sections/scembed/introduction.typ"
 
 == Results
-#include "results.typ"
+#include "/sections/scembed/results.typ"
 #pagebreak()
+
+== Discussion and future work
+#include "/sections/scembed/discussion.typ"
 
 #if sys.inputs.at("partial", default: "false") == "true" [ 
   = References

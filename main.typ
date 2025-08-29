@@ -31,19 +31,19 @@
 
 // chapters
 #show: chapter.with(
-  title: "Chapter 1: Introduction to gene regulation, ATAC-seq and current analytical challenges"
+  title: "Introduction to gene regulation, ATAC-seq and current analytical challenges"
 )
 #include "sections/chapter1/main.typ"
 
 
-#show: chapter.with(
-  title: "Chapter 2: Methods overview"
-)
-#include "sections/chapter2/main.typ"
+// #show: chapter.with(
+//   title: "Methods overview"
+// )
+// #include "sections/chapter2/main.typ"
 
 
 #show: chapter.with(
-  title: "Chapter 3: Fast clustering and annotation of scATAC-seq data using pretrained region embeddings"
+  title: "Fast clustering and annotation of scATAC-seq data using pretrained region embeddings"
 )
 #include "sections/chapter3/main.typ"
 
@@ -56,6 +56,6 @@
 )
 #pagebreak()
 
-#show: appendix
+#show: appendix.with(title: "Extended methods")
 #include "sections/appendix/main.typ"
 

@@ -1,22 +1,22 @@
 #import "@local/dissertation:0.0.1": chapter
 
 == A brief history of gene regulation and the study of chromatin accessibility
-#include "/sections/chapter1/background.typ"
+#include "/sections/background/background.typ"
 
 == Computational challenges in single-cell ATAC-seq analysis
-#include "/sections/chapter1/computational-challenges.typ"
+#include "/sections/background/computational-challenges.typ"
 
 == Deep learning-based methods for scATAC-seq analysis
-#include "/sections/chapter1/deep-learning-methods.typ"
+#include "/sections/background/deep-learning-methods.typ"
 
 == Large, pre-trained foundation models for genomic data
-#include "/sections/chapter1/foundation-models.typ"
+#include "/sections/background/foundation-models.typ"
 
 == Summary of computational methods for scATAC-seq analysis
-#include "/sections/chapter1/summary-of-methods.typ"
+#include "/sections/background/summary-of-methods.typ"
 
 == Improving model sharing, efficiency, and flexibility of scATAC-seq foundation models
-#include "/sections/chapter1/thesis-setup.typ"
+#include "/sections/background/thesis-setup.typ"
 
 #pagebreak()
 
