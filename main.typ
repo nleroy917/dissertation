@@ -39,6 +39,12 @@
 
 
 #show: chapter.with(
+  title: "Background and related work in natural language processing (NLP)"
+)
+#include "sections/nlp-background/main.typ"
+#pagebreak()
+
+#show: chapter.with(
   title: "New infrastructure to support scATAC-seq machine learning"
 )
 #include "sections/infrastructure/main.typ"

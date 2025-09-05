@@ -1,0 +1,12 @@
+=== From words to numbers: the challenge of word representation
+A core challenge in natural language processing is how to represent words in a way that a machine learning model can understand. Fundamentally, a neural network is only capable of processing numerical data. This means that before we can apply neural networks to text, we need a way to convert words into numbers. Specifically this means converting something like the sentence: `"The cat sat on the mat."` into a numerical format that a neural network can understand. This is not a trivial task, as words are discrete symbols that do not have an inherent numerical representation.
+
+=== One-hot encoding
+A simple and intuitive way to represent words numerically is through one-hot encoding. In this approach, we first create a vocabulary of all unique words in our dataset. Each word is then represented as a vector of zeros with a single one at the index corresponding to that word in the vocabulary. For example, if our vocabulary consists of the words `["the", "cat", "sat", "on", "mat"]`, the word "cat" would be represented as `[0, 1, 0, 0, 0]`.
+
+While one-hot encoding is straightforward, it has several limitations. First, it results in high-dimensional and sparse vectors, especially for large vocabularies. Second, it does not capture any semantic relationships between words; for instance, "cat" and "dog" would be represented as completely orthogonal vectors despite their semantic similarity.
+
+A neural network with a vocabulary size of 10,000 words would require input vectors of length 10,000. This would, in turn, require a massive number of parameters in the first layer of the network, leading to increased computational costs and a higher risk of overfitting.
+
+=== Distributed representations
+To address the limitations of one-hot encoding, researchers developed distributed representations, also known as word embeddings. In this approach, words are represented as dense vectors in a continuous vector space, where semantically similar words are mapped to nearby points. This allows the model to capture relationships between words based on their contexts. For example, in a well-trained embedding space, the vectors for "king" and "queen" would be close to each other, and the relationship between "king" and "queen" could be represented as a vector offset, such as "king" - "man" + "woman" = "queen".
