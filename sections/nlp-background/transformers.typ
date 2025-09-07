@@ -1,0 +1,10 @@
+=== Transformers
+Transformers are a type of neural network architecture that has gained significant popularity in recent years, particularly for natural language processing tasks. Introduced in the paper "Attention is All You Need" by Vaswani et al. in 2017 @Vaswani2017, transformers leverage a mechanism called self-attention to process input sequences in parallel, rather than sequentially as RNNs do. This allows transformers to capture long-range dependencies more effectively and efficiently.
+
+The core idea behind the transformer architecture is the self-attention mechanism, which enables the model to weigh the importance of different words in a sequence when making predictions. In a self-attention layer, each word's representation is computed by considering its relationship with all other words in the sequence. This is in contrast to RNNs, which rely on a hidden state to propagate information through the sequence.
+
+Transformers consist of an encoder-decoder structure, where the encoder processes the input sequence and generates a set of context-aware representations, and the decoder uses these representations to produce the output sequence. Both the encoder and decoder are composed of multiple layers of self-attention and feedforward neural networks, allowing them to learn complex patterns in the data.
+
+One of the key advantages of transformers is their ability to process sequences in parallel, making them highly efficient for training on large datasets. Additionally, transformers have been shown to achieve state-of-the-art performance on a wide range of NLP tasks, including machine translation, text summarization, and sentiment analysis.
+
+Despite their success, transformers also have limitations. They can be memory-intensive, especially for long sequences, and their reliance on self-attention can make them less interpretable than simpler models. Nevertheless, transformers have become the foundation for many recent advancements in NLP, including the development of large pre-trained models like BERT and GPT-3, which we will discuss in the next section.
