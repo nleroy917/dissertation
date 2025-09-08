@@ -27,13 +27,13 @@ The actual embeddings are obtained from the weights of the hidden layer after tr
 $
 "e"_"cat" = W_h^T dot "one-hot"
 $
-or
+#align(center)[or,]
 $
 "e"_"cat" = mat(
-  w_"1,1", w_"1,2", ..., w_"1,d";
-  w_"2,1", w_"2,2", ..., w_"2,d";
+  w_"1,1", w_"1,2", ..., w_"1,V";
+  w_"2,1", w_"2,2", ..., w_"2,V";
   dots.v, dots.v, dots.down, dots.v;
-  w_"V,1", w_"V,2", ..., w_"V,d"
+  w_"d,1", w_"d,2", ..., w_"d,V"
 ) dot 
 mat(
   0;
@@ -42,10 +42,10 @@ mat(
   0
 ) =
 mat(
-  w_"1,1" dot 0 + w_"1,2" dot 1 + ... + w_"1,d" dot 0;
-  w_"2,1" dot 0 + w_"2,2" dot 1 + ... + w_"2,d" dot 0;
+  w_"1,1" dot 0 + w_"1,2" dot 1 + ... + w_"1,V" dot 0;
+  w_"2,1" dot 0 + w_"2,2" dot 1 + ... + w_"2,V" dot 0;
   dots.v;
-  w_"V,1" dot 0 + w_"V,2" dot 1 + ... + w_"V,d" dot 0
+  w_"d,1" dot 0 + w_"d,2" dot 1 + ... + w_"d,V" dot 0
 ) =
 // mat(
 //   0 + w_"1,2", ..., 0;
@@ -57,11 +57,11 @@ mat(
   w_"1,2";
   w_"2,2";
   dots.v;
-  w_"V,2"
+  w_"d,2"
 )
 $
 
-Word2Vec embeddings have been highly successful in capturing semantic relationships between words and have been widely adopted in various NLP tasks. Extensions and improvements upon Word2Vec, such as GloVe @Pennington2014, FastText @Bojanowski2017, and Dov2Vec @Moody2016 have further advanced the field of word embeddings. These methods have laid the groundwork for more complex models, including those based on transformers, which we will explore in subsequent sections. However, *the critical insight from Word2Vec — that words can be meaningfully represented in a continuous vector space based on their contexts — remains foundational to modern NLP and our own work on genomic interval analysis*.
+Word2Vec embeddings have been highly successful in capturing semantic relationships between words and have been widely adopted in various NLP tasks. Extensions and improvements upon Word2Vec, such as GloVe @Pennington2014, FastText @Bojanowski2017, and Doc2Vec @Le2014 have further advanced the field of word embeddings. These methods have laid the groundwork for more complex models, including those based on transformers, which we will explore in subsequent sections. However, *the critical insight from Word2Vec — that words can be meaningfully represented in a continuous vector space based on their contexts — remains foundational to modern NLP and our own work on genomic interval analysis*. Each word gets its own vector in a high-dimensional space, and the relationships between these vectors capture semantic similarities and differences.
 
 #figure(
   image("/fig/nlp-background/word-representations.svg"),

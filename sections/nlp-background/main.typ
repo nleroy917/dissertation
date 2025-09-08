@@ -9,3 +9,6 @@
 
 == Transformers and attention mechanisms
 #include "/sections/nlp-background/transformers.typ"
+
+== From transformers to large language models and beyond
+#include "/sections/nlp-background/gpt-foundation-models.typ"
