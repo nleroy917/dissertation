@@ -45,7 +45,7 @@
 #pagebreak()
 
 #show: chapter.with(
-  title: "New infrastructure to support scATAC-seq machine learning"
+  title: "Fast, memory-efficient genomic interval tokenizers for modern machine learning"
 )
 #include "sections/infrastructure/main.typ"
 #pagebreak()

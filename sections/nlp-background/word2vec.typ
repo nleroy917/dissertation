@@ -2,7 +2,7 @@
 A core challenge in natural language processing is how to represent words in a way that a machine learning model can understand. Fundamentally, a neural network is only capable of processing numerical data. This means that before we can apply neural networks to text, we need a way to convert words into numbers. Specifically this means converting something like the sentence: `"The cat sat on the mat."` into a numerical format that a neural network can understand. This is not a trivial task, as words are discrete symbols that do not have an inherent numerical representation.
 
 === One-hot encoding
-A simple and intuitive way to represent words numerically is through one-hot encoding. In this approach, we first create a vocabulary of all unique words in our dataset. Each word is then represented as a vector of zeros with a single one at the index corresponding to that word in the vocabulary. For example, if our vocabulary consists of the words `["the", "cat", "sat", "on", "mat"]`, the word "cat" would be represented as such (@word-representations\A): 
+A simple and intuitive way to represent words numerically is through one-hot encoding. In this approach, we first create a vocabulary of all unique words in our dataset. Each word is then represented as a vector of zeros with a single one at the index corresponding to that word in the vocabulary. For example, if our vocabulary consists of the words `["the", "cat", "sat", "on", "mat"]`, the word `"cat"` would be represented as such (@word-representations\A): 
 
 #align(center)[
 ```

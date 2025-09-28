@@ -16,5 +16,11 @@
   )
 )
 
-== The need for more robust tools in genomic machine learning
+== Introduction
 #include "/sections/infrastructure/introduction.typ"
+
+== Results
+#include "/sections/infrastructure/results.typ"
+
+== Discussion
+#include "/sections/infrastructure/discussion.typ"
