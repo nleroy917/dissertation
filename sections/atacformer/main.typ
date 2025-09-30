@@ -21,3 +21,6 @@
 
 == Results
 #include "/sections/atacformer/results.typ"
+
+== Discussion
+#include "/sections/atacformer/discussion.typ"

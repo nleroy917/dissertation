@@ -4,3 +4,6 @@
 
 == scEmbed extended methods
 #include "/sections/appendix/scembed/methods.typ"
+
+== Atacformer extended methods
+#include "/sections/appendix/atacformer/methods.typ"
