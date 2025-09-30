@@ -18,3 +18,6 @@
 
 == Introduction to Atacformer
 #include "/sections/atacformer/introduction.typ"
+
+== Results
+#include "/sections/atacformer/results.typ"
