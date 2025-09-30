@@ -22,6 +22,14 @@
 ])
 
 #figure(
+  image("/fig/atacformer/clustering/ctft_before_after_comparison.svg"),
+  caption: "Fine-tuning Atacformer for a cell-clustering task improves latent space separation of individual cells."
+) <atacformer-clustering-ctft-before-after>
+#figure-caption-extended(caption: [
+  *a.* UMAP visualization of Luecken2021 dataset clustered using `atacformer-base` (before fine-tuning). *b.* UMAP visualization of Luecken2021 dataset clustered using `atacformer-ctft` showing a marked improvement in clustering ability
+])
+
+#figure(
   image("/fig/atacformer/batch_correction/batch_correction.svg"),
   caption: "Atacformer performs strong zero-shot batch correction on processed and unprocessed data."
 ) <atacformer-batch-correction>
