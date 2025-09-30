@@ -1,6 +1,25 @@
 #import "@local/dissertation:0.0.1": figure-caption-extended
 
 #figure(
+  table(
+    columns: (auto, auto, auto, auto, auto, auto),
+    align: horizon,
+    table.header(
+      [Dataset], [Tissue], [Disease state], [No. cells], [GSE], [Author]
+    ),
+    [Human single-cell atlas], [Atlas], [Healthy], [615,998], [GSE184462], [Ren 2021],
+    [Brain 107k], [Brain], [Healthy], [107,057], [GSE168408], [Lister 2023],
+    [Atlas of tonsil], [Tonsil], [Healthy + Disease], [70,775], [-], [Massoni-Badosa 2025],
+    [Luecken2021], [Blood], [Healthy], [69,249], [-], [Luecken2021],
+    [Parkinsons 65k], [Brain], [Disease], [65,589], [GSE148434], [Jung 2023],
+    [Muscle 23k], [Muscle], [Disease], [23,593], [GSE174376], [Dyer 2022],
+    [Kidney 22k], [Kidney], [Healthy], [22,772], [-], [10X],
+    [Cornea atlas], [Eye], [Healthy], [1,209], [GSE155683], [Lako 2021]
+  ),
+  caption: [Supplementary Table 1: Detailed information about all datasets used to curate the single-cell atlas.],
+)<atacformer-pretraining-dataset-table>
+
+#figure(
   image("/fig/atacformer/overview/context_length_dist.svg"),
   caption: "Distribution of context window lengths in the Atacformer training corpus."
 ) <atacformer-context-window-distribution>
