@@ -2,7 +2,7 @@
 
 #authors(
   authors: (
-        ( name: "Nathan J. LeRoy", me: false, affiliations: [1, 2] ),
+        ( name: "Nathan J. LeRoy", me: true, affiliations: [1, 2] ),
         ( name: "Donald Campbell", me: false, affiliations: [1] ),
         ( name: "Oleksandr Khoroshevskyi", me: false, affiliations: [1] ),
         ( name: "Julia Rymuza", me: false, affiliations: [1] ),
