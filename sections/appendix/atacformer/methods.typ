@@ -38,72 +38,103 @@ $
 Tokenization reduces these raw intervals to their canonical vocabulary
 representatives via a simple interval intersection:
 
-// $I_c = \left\{ v \in U \; middle \; \exists r \in R_{c} : r \cap v \neq \varnothing \right\}$
+$
+I_c = { v in U ; exists r in R_c ; v inter r != emptyset }
+$
 
-// We then map each vocabulary element to its integer identifier, producing
-// a sequence of token indices
+We then map each vocabulary element to its integer identifier, producing
+a sequence of token indices
 
-// $$T_{c} = \left( \operatorname{id}(v) \right)_{v \in I_{c}} \in \left\{ 1,\ldots,V \right\}^{|I_{c}|}$$
+$
+T_c = { "id"(v) ; v in I_c }
+$
 
-// To create a learning signal we apply **ELECTRA-style corruption**. Each
-// position $j$ is independently selected for replacement with probability
-// $p = 0.45$:
+To create a learning signal we apply *ELECTRA-style corruption* @Clark2020. Each
+position $j$ is independently selected for replacement with probability $p = 0.45$:
 
-// $$\delta_{j}\sim\operatorname{Bernoulli}(p),z_{j}\sim\operatorname{Unif}(U)$$
+$
+delta_j ~ "Bernoulli"(p), z_j ~ "Unif"(U)
+$
 
-// The corrupted token sequence is therefore: $$c,j = \begin{cases}
-// z_{j}\text{ if }\delta_{j} = 1 \\
-// T_{c,j}\text{ if }\delta_{j} = 0
-// \end{cases}$$
+The corrupted token sequence is therefore: 
 
-// Every token id is looked up in a shared embedding matrix
-// $E \in \mathbb{R}^{V \times d}$ to obtain dense vectors
+$
+c, j = cases(
+  z_j "if" delta_j = 1,
+  T_{c,j} "if" delta_j = 0
+)
+$
 
-// $$x_{j} = E_{T_{c,j}},$$
+Every token id is looked up in a shared embedding matrix
+$E in bb(R)^(V times d)$ to obtain dense vectors
 
-// $$X_{c} = \left( x_{1},\ldots,x_{|I_{c}|} \right)$$
+$
+x_j = E_T_(c,j),
+$
 
-// These embeddings pass through $L$ stacked transformer encoder layers (no
-// positional encodings are supplied):
+$
+X_c = ( x_1, dots ,x_(|I_c|) )
+$
 
-// $$H^{(0)} = X_{c},\left( H^{\ell - 1} \right)$$
+These embeddings pass through $L$ stacked transformer encoder layers (no
+positional encodings are supplied):
 
-// $$H^{\ell} = \operatorname{TransformerLayer}_{\ell}$$
+$
+H^((0)) = X_c, ( H^(ell - 1) )
+$
 
-// $$L = 1,\ldots,\ell$$
+$
+H^ell = "TransformerLayer"_ell
+$
 
-// The final contextual embedding at each position $j$ is
-// $$h_{j} = H_{j}^{(L)}.$$
+$
+L = 1,dots,ell
+$
 
-// A lightweight classifier head converts each contextual vector into the
-// probability that the original token was **replaced**:
+The final contextual embedding at each position $j$ is
+$
+h_j = H_j^((L)).
+$
 
-// $$s_{j} = W_{o}h_{j} + b,\quad\hat{y_{j}} = \sigma(s_{j}).$$
+A lightweight classifier head converts each contextual vector into the
+probability that the original token was *replaced*:
 
-// Training minimizes the binary cross-entropy **replaced-token detection**
-// loss over all positions in the cell:
-// $$\mathcal{L_{c}} = - \sum_{j = 1}^{|I_{c}|}\left\lbrack \right.\delta_{j}\log\hat{y_{j}} + \left( 1 - \delta_{j} \right)\log(1 - \hat{y_{j}})\left\rbrack \right.$$
+$
+s_j = W_o h_j + b, quad hat(y_j) = sigma(s_j).
+$
 
-// Averaging $\mathcal{L_{c}}$ over the mini-batch and optimizing with
-// AdamW completes the pre-training procedure.
+Training minimizes the binary cross-entropy *replaced-token detection*
+loss over all positions in the cell:
 
-// Cell embedding calculation
 
-// To generate single-cell embeddings, we first tokenize a single-cell
-// according to the steps outlined above. We then pass the tokens through
-// the model to obtain a contextualized embedding representation for each
-// region-token in that cell:
+$
+cal(L)_c = - sum_(j = 1)^(|I_c|)[delta_j log(hat(y_j)) + (1 - delta_j) log(1 - hat(y_j))]
+$
 
-// $$H^{\ell} = \operatorname{AtacformerBase}(\left\{ e_{1},\ldots,e_{j} \right\}) \in \mathbb{R}^{j \times d_{\text{model}}}$$
+Averaging $cal(L)_c$ over the mini-batch and optimizing with
+AdamW completes the pre-training procedure.
 
-// Where $e_{j}$ is the initial token embedding for the $j^{\text{th}}$
-// region token. We then obtain cell-embeddings by pooling all
-// contextualized region-embeddings through mean-pooling:
+=== Cell embedding calculation <atacformer-cell-embedding-methods>  
 
-// $$E_{\text{cell }} = \frac{1}{j}\sum_{i = 0}^{j - 1}h_{i} \in \mathbb{R}^{d_{\text{model}}}$$
+To generate single-cell embeddings, we first tokenize a single-cell
+according to the steps outlined above. We then pass the tokens through
+the model to obtain a contextualized embedding representation for each
+region-token in that cell:
 
-// where $h_{i}$ is the contextualized embedding vector for the
-// $i^{\text{th}}$ token.
+$
+H^ell = "AtacformerBase"({ e_1, dots, e_j }) in bb(R)^(j times d_"model")
+$
+
+Where $e_j$ is the initial token embedding for the $j^"th"$
+region token. We then obtain cell-embeddings by pooling all
+contextualized region-embeddings through mean-pooling:
+
+$
+E_"cell" = 1/j sum_(i = 0)^(j - 1) h_i in bb(R)^(d_"model")
+$
+
+where $h_i$ is the contextualized embedding vector for the
+$i^"th"$ token.
 
 === Triplet loss calculation <atacformer-triplet-loss-methods>
 
