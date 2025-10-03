@@ -9,7 +9,6 @@
   dedication: "To my family and friends, for their unwavering support and encouragement.",
 )
 
-// front matter
 = Abstract
 #include "sections/abstract.typ"
 #pagebreak()
