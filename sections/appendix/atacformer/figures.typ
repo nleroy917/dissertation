@@ -69,3 +69,9 @@
 ) <atacformer-bedbase-cell-line-imputation>
 #figure-caption-extended(caption: [*a.* Schematic of the imputation procedure. *b.* Confusion matrix for entire cell line dataset.
 ])
+
+#figure(
+  image("/fig/atacformer/ictss/supplement_anecdotes.svg"),
+  caption: "Extra supplemental anecdotes of H3K4me3 enrichment in icTSS regions."
+) <atacformer-extra-ictss-anecdotes>
+#figure-caption-extended(caption: [*a.* Example icTSS regions showing H3K4me3 in Monocytes. *b.* Example icTSS showing H3K4me3 enrichment in B cells.])
