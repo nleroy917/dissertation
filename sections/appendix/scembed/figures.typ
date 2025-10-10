@@ -26,6 +26,16 @@
 )
 
 #figure(
+  image("/fig/scembed/projection_ragi_normality.svg"),
+  caption: "Distributions of the RAGI scores for all subsampled cells."
+) <scembed-ragi-normality>
+#figure-caption-extended(
+  caption: [
+    *a.* Distribution of RAGI scores for cells with embeddings from the new model versus projection through the model trained on the Buenrostro2018 dataset. *b.* QQ plots of the RAGI scores for cells with embeddings from the new model versus projection through the model trained on the Buenrostro2018 dataset.
+  ]
+)
+
+#figure(
   table(
     columns: (auto, auto),
     align: horizon,

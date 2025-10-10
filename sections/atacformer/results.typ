@@ -1,4 +1,4 @@
-#import "@local/dissertation:0.0.1": figure-caption-extended, todo
+#import "@local/dissertation:0.0.1": figure-caption-extended
 
 === Atacformer is a new transformer-based foundation model for ATAC-seq data
 #figure(
