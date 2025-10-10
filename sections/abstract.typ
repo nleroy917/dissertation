@@ -6,11 +6,13 @@ This dissertation explores transformer-based transfer learning approaches tailor
 
 In Chapter 1, we review the current landscape of scATAC-seq analysis, detailing existing workflows, their limitations, and the growing interest in developing general-purpose foundation models for chromatin data interpretation.
 
-In Chapter 2, we extend prior work on self-supervised representation learning by adapting genomic region embeddings to the single-cell setting. We introduce early transfer learning pipelines that use these embeddings as input for downstream scATAC-seq tasks, forming a foundation for generalizable models.
+In chapter 2, we provide essential background on natural language processing (NLP) techniques, focusing on transformer architectures and self-supervised learning methods that have revolutionized text analysis. We discuss how these concepts can be adapted to genomic data, highlighting parallels between language and DNA sequences.
 
 In Chapter 3, we describe supporting infrastructure for high-throughput, efficient scATAC-seq data processing. This includes Rust-based genomic tokenizers for rapid interval processing, the uniwig tool for consensus set generation, and PEPhub for project metadata standardization and management.
 
-In Chapter 4, we introduce Atacformer, a transformer-based model specifically designed to learn contextualized representations of genomic interval data. We describe its architecture, training strategy, and application to tasks such as clustering and annotation, showing how it benefits from pretraining and transfer learning.
+In Chapter 4, we extend prior work on self-supervised representation learning by adapting genomic region embeddings to the single-cell setting. We introduce early transfer learning pipelines that use these embeddings as input for downstream scATAC-seq tasks, forming a foundation for generalizable models.
+
+In Chapter 5, we introduce Atacformer, a transformer-based model specifically designed to learn contextualized representations of genomic interval data. We describe its architecture, training strategy, and application to tasks such as clustering and annotation, showing how it benefits from pretraining and transfer learning.
 
 In Chapter 5, we outline the limitations of our approach and identify key directions for future work. These include better benchmarking standards, integration with multi-omic datasets, and refining tokenization strategies to improve generalization and interpretability.
 
