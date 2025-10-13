@@ -16,7 +16,7 @@
     [Kidney 22k], [Kidney], [Healthy], [22,772], [-], [10X],
     [Cornea atlas], [Eye], [Healthy], [1,209], [GSE155683], [Lako 2021]
   ),
-  caption: [Supplementary Table 1: Detailed information about all datasets used to curate the single-cell atlas.],
+  caption: [Supplementary Table 1: Detailed information about all datasets used to curate the single-cell atlas for Atacformer.],
 )<atacformer-pretraining-dataset-table>
 
 #figure(
