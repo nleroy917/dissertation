@@ -1,3 +1,6 @@
+== Preface
+#include "/sections/nlp-background/preface.typ"
+
 == The rise of natural language processing
 #include "/sections/nlp-background/intro.typ"
 
