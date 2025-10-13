@@ -44,7 +44,7 @@
 #pagebreak()
 
 #show: chapter.with(
-  title: "Fast, memory-efficient genomic interval tokenizers for modern machine learning"
+  title: "Efficient computational tools for creating genomic interval vocabularies and tokenization frameworks for modern machine learning applications"
 )
 #include "sections/infrastructure/main.typ"
 #pagebreak()

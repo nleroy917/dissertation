@@ -16,5 +16,8 @@
 == From transformers to large language models and beyond
 #include "/sections/nlp-background/gpt-foundation-models.typ"
 
+== Summary of NLP techniques
+#include "/sections/nlp-background/summary.typ"
+
 == From words to genomic regions: adapting NLP techniques to gene regulation
 #include "/sections/nlp-background/genomic-tokens.typ"
