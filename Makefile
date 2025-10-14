@@ -61,24 +61,45 @@ odt:
 
 ch1:
 	typst \
-		compile sections/chapter1/main.typ \
+		compile sections/background/main.typ \
 		--root=./ \
 		--input partial=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_CH1.pdf"
 
 ch2:
 	typst \
-		compile sections/chapter2/main.typ \
+		compile sections/nlp-background/main.typ \
 		--root=./ \
 		--input partial=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_CH2.pdf"
 
 ch3:
 	typst \
-		compile sections/chapter3/main.typ \
+		compile sections/infrastructure/main.typ \
 		--root=./ \
 		--input partial=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_CH3.pdf"
+
+ch4:
+	typst \
+		compile sections/scembed/main.typ \
+		--root=./ \
+		--input partial=true \
+		"out/pdfs/$(GITHASH)_$(DATE)_CH4.pdf"
+
+ch5:
+	typst \
+		compile sections/atacformer/main.typ \
+		--root=./ \
+		--input partial=true \
+		"out/pdfs/$(GITHASH)_$(DATE)_CH5.pdf"
+
+ch6:
+	typst \
+		compile sections/conclusions/main.typ \
+		--root=./ \
+		--input partial=true \
+		"out/pdfs/$(GITHASH)_$(DATE)_CH6.pdf"
 
 release:
 	typst \

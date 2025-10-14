@@ -24,3 +24,12 @@
 
 == Discussion
 #include "/sections/atacformer/discussion.typ"
+
+#if sys.inputs.at("partial", default: "false") == "true" [ 
+  = References
+  #bibliography(
+    "/refs.bib",
+    style: "nature",
+    title: none
+  ) 
+]
