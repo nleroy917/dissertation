@@ -1,11 +1,6 @@
 #import "@local/dissertation:0.0.1": figure-caption-extended
 
 #figure(
-  image("/fig/scembed/epoch-tests.svg"),
-  caption: "Epoch tests show that scEmbed learns well after 100 epochs."
-) <scembed-epoch-tests>
-
-#figure(
   image("/fig/scembed/luecken2021-umaps.svg"),
   caption: "scEmbed clusters cells from the Luecken2021 dataset."
 ) <scembed-luecken2021-umaps>
@@ -59,3 +54,8 @@
   image("/fig/scembed/cellcano-tsne.svg"),
   caption: "Cellcano cell type annotations for PBMC dataset."
 ) <scembed-cellcano-tsne>
+
+#figure(
+  image("/fig/scembed/epoch-tests.svg"),
+  caption: "Epoch tests show that scEmbed learns well after 100 epochs."
+) <scembed-epoch-tests>

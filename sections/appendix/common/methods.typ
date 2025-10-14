@@ -1,10 +1,10 @@
-=== Clustering methodologies
+=== Clustering methodologies <common-clustering-methods>
 We use three clustering algorithms: Hierarchical clustering (HC), k-means clustering, and Louvain clustering. For HC and k-means, we use the `scikit-learn` implementations. When ground-truth labels were known for a particular dataset, we used the number of unique labels to set the number of clusters to generate. Otherwise, we used prior knowledge to estimate the number of unique cell populations we would expect to find. For Louvain clustering, we use the `scanpy` implementation. Louvain is agnostic to a specified number of clusters. As such, we iteratively applied clustering to datasets while slowly increasing the resolution value from 0 to 3. With each iteration, the number of clusters was stored in a list along with the corresponding resolution. Once complete, we employed binary search on the list to identify the resolution that gave us the desired number of clusters. This value was used to generate the final clustering solution.
 
 === Embedding visualization
 We used uniform manifold approximation and projection (UMAP) to visualize single-cell embeddings @McInnes2020. We used the `umap-learn` Python package and specified two dimensions for each visualization. In addition, a random state of 42 was set for visualization workflows. All other parameters were set to package defaults
 
-=== Clustering evaluation
+=== Clustering evaluation <common-clustering-evaluation-methods>
 Three scores are employed when a dataset has ground-truth labels: The adjusted rand index (ARI), the adjusted mutual info score (AMI), and the homogeneity score. 
 
 ==== Adjusted Rand Index
