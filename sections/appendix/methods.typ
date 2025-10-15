@@ -12,4 +12,3 @@
 
 == Atacformer extended methods
 #include "/sections/appendix/atacformer/methods.typ"
-#pagebreak()
