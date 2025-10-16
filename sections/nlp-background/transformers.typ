@@ -1,3 +1,5 @@
+#import "@local/dissertation:0.0.1": *
+
 === Transformers
 Transformers are a type of neural network architecture that has gained significant popularity in recent years, particularly for natural language processing tasks. Introduced in the paper "Attention is All You Need" by Vaswani et al. in 2017 @Vaswani2017, transformers leverage a mechanism called self-attention to process input sequences _in parallel_, rather than _sequentially_ as RNNs and LSTMs do. This enables two things: first, transformers can capture long-range dependencies in the data more effectively, as there is no more "distance" between words in a sequence; and second, they can be trained more efficiently on large datasets due to their parallelizable architecture. Specifically, they consume sequences as a whole instead of word-by-word, allowing for much faster training times (@w2v-rnn-transformer\C).
 
@@ -5,6 +7,11 @@ Transformers are a type of neural network architecture that has gained significa
   image("/fig/nlp-background/w2v-rnn-transformer.svg"),
   caption: [Evolution of word representation and sequence modeling techniques in NLP: from Word2Vec to RNNs to Transformers.]
 ) <w2v-rnn-transformer>
+#figure-caption-extended(
+  caption: [
+    *a.*  Schematic of Word2Vec. It learns word embeddings based on local context windows. The model acts as a lookup table for word vectors. *b.* Schematic of RNNs. They process sequences sequentially, maintaining a hidden state that captures information from previous time steps. *c.* Schematic of Transformers. They use self-attention to process entire sequences in parallel, allowing for better capture of long-range dependencies. Transformers do away with recurrences entirely (i.e. processing one word at a time), instead relying on self-attention to relate different positions of the sequence.
+  ]
+)
 
 === Self attention
 The core innovation of transformers is the self-attention mechanism, which allows the model to weigh the importance of different words in a sequence when updating their representations. In self-attention, each word in the input sequence is transformed into three vectors: a query vector, a key vector, and a value vector. The attention score between two words is computed as the dot product of the query vector of one word and the key vector of another word, followed by a softmax operation to obtain a probability distribution. This score determines how much attention one word should pay to another when updating its representation. The final output for each word is then computed as a weighted sum of the value vectors of all words in the sequence, where the weights are given by the attention scores.
@@ -20,7 +27,7 @@ A key thing to note is that in self-attention, each word can attend to all other
 
 While powerful, the self-attention mechanism can be computationally intensive, especially for long sequences, as it requires computing attention scores for all pairs of words. This leads to $O(n^2)$ complexity, where $n$ is the length of the input sequence.
 
-This complexity resulted in difficulties when scaling up transformers to very long sequences, such as entire documents or genomic regions. To address this, various modifications and optimizations have been proposed, such as sparse attention mechanisms, which limit the number of words each word can attend to, and hierarchical transformers, which process sequences at multiple levels of granularity.
+This complexity resulted in difficulties when scaling up transformers to very long sequences, such as entire documents or whole genomic region sets. To address this, various modifications and optimizations have been proposed, such as sparse attention mechanisms, which limit the number of words each word can attend to, and hierarchical transformers, which process sequences at multiple levels of granularity.
 
 === Approximations of self-attention
 After the original transformer architecture was introduced, several variants and improvements have been proposed to enhance its performance and efficiency, particularly within the self-attention mechanism. We describe some notable examples in turn.

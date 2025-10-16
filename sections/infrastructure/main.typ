@@ -3,8 +3,8 @@
 #authors(
   authors: (
         ( name: "Nathan J. LeRoy", me: true, affiliations: [1, 2] ),
-        ( name: "Donald Campbell", me: false, affiliations: [1] ),
         ( name: "Julia Rymuza", me: false, affiliations: [1] ),
+        ( name: "Donald Campbell", me: false, affiliations: [1] ),
         ( name: "Oleksandr Khoroshevskyi", me: false, affiliations: [1] ),
         ( name: "Seth Stadick", me: false, affiliations: [3] ),
         ( name: "Sang-Hoon Park", me: false, affiliations: [1] ),
