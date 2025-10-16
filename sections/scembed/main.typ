@@ -1,4 +1,4 @@
-#import "@local/dissertation:0.0.1": authors
+#import "@local/dissertation:0.0.1": authors, informational-note
 
 #authors(
   authors: (
@@ -22,6 +22,11 @@
     "Department of Public Health Sciences, School of Medicine, University of Virginia, Charlottesville, VA 22908, USA"
   )
 )
+
+#informational-note([
+  This chapter is adapted from the following publication: \
+  LeRoy _et al._ @LeRoy2024, which introduced scEmbed, a method for fast clustering and annotation of scATAC-seq data using pretrained region embeddings.
+])
 
 == Introduction to scEmbed
 #include "/sections/scembed/introduction.typ"

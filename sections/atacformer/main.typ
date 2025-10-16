@@ -1,4 +1,4 @@
-#import "@local/dissertation:0.0.1": authors
+#import "@local/dissertation:0.0.1": authors, informational-note
 
 #authors(
   authors: (
@@ -15,6 +15,11 @@
     "Department of Computer Science, School of Engineering and Applied Sciences, University of Virginia, 22908, Charlottesville VA"
   )
 )
+
+#informational-note([
+  This chapter is adapted from the following preprint: \
+  LeRoy _et al._ @LeRoy2025a, which introduced Atacformer, a transformer-based foundation model for analysis and interpretation of ATAC-seq data.
+])
 
 == Introduction to Atacformer
 #include "/sections/atacformer/introduction.typ"

@@ -1,4 +1,4 @@
-#import "@local/dissertation:0.0.1": authors
+#import "@local/dissertation:0.0.1": authors, informational-note
 
 #authors(
   authors: (
@@ -18,6 +18,12 @@
     "Department of Computer Science, School of Engineering and Applied Sciences, University of Virginia, 22908, Charlottesville VA"
   )
 )
+
+#informational-note([
+  This chapter is adapted from the following publication and preprint: \
+  (1) Rymuza _et al._ @Rymuza2024, which introduced a comprehensive framework for constructing and evaluating consensus genomic interval sets (or "universes") for machine learning applications; and \
+  (2) LeRoy _et al._ @LeRoy2025, which presented the genomic tokenizers, a high-performance rust library for efficient tokenization of genomic interval data into these consensus vocabularies.
+])
 
 == Introduction
 #include "/sections/infrastructure/introduction.typ"
