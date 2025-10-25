@@ -1,0 +1,6 @@
+== Broader Impact and Closing Remarks
+Modern NLP and computer vision have matured immensely through standardized tokenization, evaluation, and model-sharing ecosystems. Genomics has lacked such a unifying framework. Fragmented tools, inconsistent formats, and limited reproducibility have hindered progress particularly for machine learning applications.
+
+This dissertation establishes a foundation for such a framework. By defining genomic regions as transferable tokens, it provides the conceptual and infrastructural basis for foundation models in regulatory genomics. The progression from gtars (infrastructure) to scEmbed (embedding prototype) to Atacformer (contextual foundation model) parallels the evolution from bag-of-words to transformers in NLP—transforming static, handcrafted features into dynamic, learnable representations of biological meaning.
+
+Ultimately, this work demonstrates that gene regulation, like language, is compositional and contextual. Treating chromatin accessibility as a structured language enables not only better models but also deeper biological insight—revealing the syntax of regulation and setting the stage for a new generation of data-driven discovery in epigenomics.
