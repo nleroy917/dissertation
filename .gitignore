@@ -5,3 +5,6 @@ inspo/
 
 # personal notes
 .notes
+
+# AI assistant files
+.claude/
