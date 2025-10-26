@@ -1,16 +1,12 @@
-== Technical Limitations and Challenges
-While this work represents significant progress toward applying foundation model principles to genomics, several key challenges remain.
+== Technical limitations and challenges
+Through the development of gtars, scEmbed, and Atacformer, we have gained critical insights into the capabilities and constraints of our current approaches. The challenges encountered throughout this research have revealed important boundaries of existing methods and highlighted opportunities for future innovation. Key technical limitations identified through this work include:
 
-=== Tokenization strategies
-Model performance depends heavily on the definition of the region universe. Fixed vocabularies may omit relevant elements in underrepresented tissues. Future work could explore adaptive or hierarchical tokenization, integrating sequence-level or motif-based features to better capture regulatory diversity.
+- *Data imbalance and diversity:* Training data remain biased toward well-characterized tissues, cell types, and experimental conditions, limiting generalization to rare or novel biological contexts.
 
-=== Data imbalance and diversity
-Training data are biased toward well-characterized tissues and cell types, limiting generalization to rare or novel contexts. Expanding corpora to include diverse biological systems and leveraging augmentation or synthetic data generation will be essential for building truly generalizable models.
+- *Tokenization strategies:* Current approaches employ relatively simple, fixed-region tokenization that makes critical assumptions about regulatory element boundaries and completely omits order and spacing information between regions.
 
-=== Interpretability
-Although Atacformer embeddings align with known regulatory features, the models remain largely opaque. Methods such as attention map visualization, perturbation analysis, or integration with regulatory networks could help reveal why certain embedding clusters form and how they relate to transcriptional outcomes.
+- *Interpretability:* While models demonstrate strong performance on cell-level tasks, interpretation of contextualized region embeddings remains underdeveloped, limiting our ability to extract mechanistic insights about regulatory grammar and interactions.
 
-=== Computational scalability
-Transformer models are computationally intensive, particularly for long genomic contexts. Efficiency could be improved through sparse attention, hierarchical context compression, or optimized vocabulary strategies that reduce token sequence length while preserving biological resolution.
+- *Computational scalability:* Computational demands present dual challenges—scaling down to enable accessible inference for resource-constrained researchers, and scaling up to extend context length for processing comprehensive genomic datasets like bulk ATAC-seq and multiomic experiments.
 
-This is important for practical deployment, especially as datasets continue to grow in size and complexity. Moreover, this makes the models more accessible to researchers and labs without extensive computational resources.
+We expand on these limitations in the next section, outlining specific research aims to address each challenge and advance the state of the art in computational epigenomics.

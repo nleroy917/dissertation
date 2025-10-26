@@ -1,9 +1,12 @@
 === Aim 4: Token-Level Interpretability — Mining Attention for Regulatory Relationships
 
 // PARAGRAPH 1: Motivation
+// - Current limitation: interpretation and analysis of contextualized region embeddings remains underdeveloped
+// - While Atacformer demonstrates strong performance on cell-level tasks, we cannot extract mechanistic insights about regulatory grammar
+// - This limits our ability to translate model outputs into biological understanding
 // - Current work focuses on cell-level embeddings (clustering, annotation)
 // - Transformer attention matrices encode token-token relationships
-// - Opportunity: extract biological insights from attention patterns
+// - Opportunity: extract biological insights from attention patterns at the region level
 // - Hypothesis: attention weights reveal regulatory connections (promoter-enhancer links, TF co-regulation)
 // - Parallel: attention analysis in NLP has revealed syntactic relationships
 

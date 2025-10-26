@@ -1,11 +1,14 @@
 === Aim 2: Intelligent Tokenization — Information-Dense Context Windows Through Adaptive Region Selection
 
 // PARAGRAPH 1: Motivation
+// - Current limitation: relatively simple tokenization strategies based on fixed genomic regions
+// - These approaches make critical assumptions about the granularity and boundaries of regulatory elements
+// - They completely omit order and spacing information between regions, which may encode important biological context
 // - Current approach: include all peaks in a cell (often 20K-50K regions)
 // - Transformer context windows are limited (current models: 2K-8K tokens)
 // - Many peaks are housekeeping regions or low-information elements
 // - Analogy: stop words in NLP — common but not semantically important
-// - Opportunity: filter or weight regions by regulatory importance
+// - Opportunity: filter or weight regions by regulatory importance and incorporate spatial relationships
 
 // PARAGRAPH 2: Proposed Approach (Part 1: Importance Scoring)
 // - Develop scoring function for genomic regions based on:
