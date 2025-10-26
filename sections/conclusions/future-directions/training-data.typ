@@ -1,33 +1,13 @@
-=== Future aim 1: Scaling the Training Atlas
-
-// PARAGRAPH 1: Motivation
-// - Current limitation: training data biased toward certain tissues, cell types, and experimental conditions
-// - Our curated corpora, while large, remain biased toward well-characterized systems
-// - Foundation models in NLP benefit from massive, diverse training data
-// - Genomics needs equivalent: tens or hundreds of millions of cells across all human tissues
-// - Data diversity is key to generalization and reducing bias
-// - Current models trained on ~10-20M cells from limited tissue types
-// - Known biases: over-representation of immune cells, under-representation of rare tissues
+=== Future aim 1: Scaling the training Atlas
 ==== Motivation
-Atacformer was trained on a substantial corpus of single-cell ATAC-seq data (\~1.2 million cells); however, this training set remains biased toward well-characterized tissues, cell types, and experimental conditions. Specifically, the dataset is currently dominated by brain, immune, and tonsil cells (@atacformer-overview\B). This biases is reflected in model performance, with reduced accuracy when procession datasets originating from biological contexts outside the models training distribution (kidney, liver, rare cell types). In contrast, foundation models in natural language processing (NLP) have demonstrated that massive, diverse training corpora are critical for achieving strong generalization and reducing bias @Brown2020. To achieve similar benefits in regulatory genomics, we propose to scale the training atlas to encompass tens or hundreds of millions of cells spanning all major human tissues, developmental stages, and disease states. Indeed, foundation models for transcriptomics are already being trained on datasets of this scale with an updated Geneformer model being trained on over 100 million cells @Chen2024b and the release of Tahoe-x1, a new transcriptomics foundation model trained on 100 million cells @Gandhi2025. Expanding the training corpus for chromatin accessibility models like Atacformer is a logical next step to improve generalization and reduce bias in downstream analyses.
+Atacformer was trained on a substantial corpus of single-cell ATAC-seq data (\~1.2 million cells); however, this training set remains biased toward well-characterized tissues, cell types, and experimental conditions. Specifically, the dataset is currently dominated by brain, immune, and tonsil cells (@atacformer-overview\B). This bias is reflected in model performance, with reduced performance when procession datasets originating from biological contexts outside the models training distribution (kidney, liver, rare cell types; @atacformer-multi-dataset-analysis). In contrast, foundation models in natural language processing (NLP) have demonstrated that massive, diverse training corpora are critical for achieving strong generalization and reducing bias @Brown2020. To achieve similar benefits in regulatory genomics, we propose to scale the training atlas to encompass tens or hundreds of millions of cells spanning all major human tissues, developmental stages, and disease states. Indeed, foundation models for transcriptomics are already being trained on datasets of this scale with an updated Geneformer model being trained on over 100 million cells @Chen2024b and the release of Tahoe-x1, a new transcriptomics foundation model trained on 100 million cells @Gandhi2025. Expanding the training corpus for chromatin accessibility models like Atacformer is a logical next step to improve generalization and reduce bias in downstream analyses.
 
-// PARAGRAPH 2: Proposed Approach
-// - Systematic collection from public repositories (GEO, SRA, HCA, CellXGene)
-// - Target: 100M+ cells spanning all major tissues, developmental stages, disease states
-// - Prioritize underrepresented systems: neuron subtypes, rare immune populations, organoids
-// - Establish quality control pipeline for heterogeneous data sources
-// - Create stratified training sets ensuring balanced representation
+==== Proposed approach
+Several recent technological developments now make it feasible to scale training corpora to 100 million cells or more. First, we will leverage the computational scalability of tools like BPCells @Parks2025, which offer improved memory efficiency for processing large-scale datasets compared to our initial preprocessing pipeline (SnapATAC2 @Zhang2024). Second, Oxbow @Abdennur2025 — a unification layer built on Apache Arrow with Rust-based I/O—enables efficient handling of next-generation sequencing data as in-memory or larger-than-memory data frames across Python and R, streamlining cross-platform data integration. Together, these advances address the storage, I/O, and processing bottlenecks that previously limited large-scale data curation.
 
-// PARAGRAPH 3: Technical Challenges
-// - Data harmonization across platforms, protocols, sequencing depths
-// - Computational cost of training on 100M+ cells
-// - Storage and data management infrastructure
-// - Batch effect correction at unprecedented scale
-// - Ensuring data use complies with sharing agreements and ethics approvals
+Building on this infrastructure, we propose to systematically collect single-cell ATAC-seq datasets from public repositories including GEO, SRA, the Human Cell Atlas, and CellXGene, targeting a training corpus exceeding 100 million cells that spans all major human tissues, developmental stages, and disease states. We will prioritize underrepresented biological systems—diverse neuron subtypes, rare immune populations, and organoid models—to mitigate the tissue and cell-type biases observed in the current Atacformer training set. A robust quality control pipeline will harmonize data from heterogeneous sources, accounting for differences in sequencing depth, peak calling strategies, and experimental protocols. Stratified sampling strategies will ensure balanced representation across tissues and cell types during model training, reducing the risk of overfitting to well-studied biological contexts.
 
-// PARAGRAPH 4: Expected Impact
-// - Models that generalize to any cell type, including rare and novel populations
-// - Reduced bias in cell annotation and clustering
-// - Better zero-shot performance on completely new tissues
-// - Foundation for clinical applications requiring diverse disease contexts
-// - Community resource: open training corpus for reproducibility and benchmarking
+==== Expected impact and evaluation
+Scaling the training atlas to 100 million cells is expected to yield models with substantially improved generalization across diverse biological contexts. We anticipate better zero-shot performance on previously unseen tissues and cell types, reduced bias in cell-type annotation and clustering, and more robust representations for rare cell populations currently underrepresented in existing training data. These improvements would establish a stronger foundation for clinical applications that require accurate modeling of diverse disease contexts and developmental stages.
+
+To quantitatively assess these improvements, we will evaluate retrained models using the same cell-clustering benchmarks established in the original Atacformer work. Specifically, we will measure clustering quality metrics (silhouette scores, adjusted Rand index) across held-out datasets spanning diverse tissues, comparing performance between models trained on the original corpus versus the expanded 100-million-cell atlas. We will pay particular attention to performance gains on underrepresented tissues (kidney, liver, rare immune populations) where the current model shows reduced accuracy. Additionally, we will assess the model's ability to generalize to completely novel datasets not represented in either training corpus, providing a rigorous test of improved generalization. Finally, the curated training corpus will be released as a community resource to support reproducibility and enable other researchers to build upon this foundation.

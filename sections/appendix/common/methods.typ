@@ -45,5 +45,3 @@ $
 $
 
 To compute these measures, we compare the predicted labels, denoted as $L_p = l_(p 1), l_(p 2), ..., l_(p n)$, to the ground truth labels, denoted as $L_g = l_(g 1), l_(g 2), ..., l_(g n)$, where n is the total number of data points (or clusters). We utilize the metrics.f1 score function from `scikit-learn` to compute this value.
-
-#pagebreak()

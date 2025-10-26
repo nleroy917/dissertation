@@ -1,44 +1,29 @@
-=== Aim 2: Intelligent Tokenization — Information-Dense Context Windows Through Adaptive Region Selection
+=== Future aim 2: Improved tokenization strategies
 
-// PARAGRAPH 1: Motivation
-// - Current limitation: relatively simple tokenization strategies based on fixed genomic regions
-// - These approaches make critical assumptions about the granularity and boundaries of regulatory elements
-// - They completely omit order and spacing information between regions, which may encode important biological context
-// - Current approach: include all peaks in a cell (often 20K-50K regions)
-// - Transformer context windows are limited (current models: 2K-8K tokens)
-// - Many peaks are housekeeping regions or low-information elements
-// - Analogy: stop words in NLP — common but not semantically important
-// - Opportunity: filter or weight regions by regulatory importance and incorporate spatial relationships
+==== Motivation
+The current tokenization strategies for our epigenomic foundation models face two interconnected challenges. First, they indiscriminately include all accessible regions detected in a single cell. Often, several thousand cCREs are co-accessible in any given cell. This results in very large context windows required to capture the full regulatory environment (@atacformer-context-window-distribution). This approach is computationally expensive and inefficient, as many of these regions are housekeeping elements or low-information peaks analogous to stop words in natural language processing. Second, current tokenization treats all regions equally and imposes no inherent order, representing each cell as an unordered "bag of peaks" that discards potentially important spatial relationships between regulatory elements.
 
-// PARAGRAPH 2: Proposed Approach (Part 1: Importance Scoring)
-// - Develop scoring function for genomic regions based on:
-//   * TF binding site density
-//   * Distance to TSSs (prioritize promoters and proximal enhancers)
-//   * Conservation scores
-//   * ChromHMM state annotations
-//   * Variance across cell types (high variance = cell-type-specific = important)
-// - Machine learning approach: train classifier to predict "regulatory impact"
-// - Create tiered vocabularies: core regions (always include) vs. context-dependent regions
+These two problems can be addressed simultaneously through importance scoring at tokenization time, an approach successfully employed by other similar models (EpiAgent and Geneformer) @Chen2025 @Theodoris2023 @Chen2024b. By assigning an importance score to each region in the vocabulary, we can retain only the top K most critical regions, effectively reducing context window size while focusing model attention on functionally relevant elements. Additionally, sorting regions by importance establishes a natural ordering that prioritizes regulatory elements most likely to influence cellular state. This dual benefit — reduced context and imposed order — addresses both computational efficiency and biological interpretability.
 
-// PARAGRAPH 3: Proposed Approach (Part 2: Implicit Ordering)
-// - Current models use "bag of peaks" — no positional information
-// - Future: incorporate genomic order while maintaining efficiency
-// - Options:
-//   * Learned positional embeddings based on genomic coordinates
-//   * Hierarchical structure: group regions by chromosome or TAD
-//   * Distance-aware attention mechanisms
-// - Challenge: balance between genomic locality and computational tractability
+Finally and importantly, the choice of tokenization strategy has cascading effects on pretraining objectives. In developing Atacformer, we had to pivot from masked language modeling (MLM) @Devlin2019a to ELECTRA-style @Clark2020 discriminative pretraining because MLM becomes computationally prohibitive for large vocabularies and context windows. Additionally, standard MLM assumes a fixed token order for masking, which is incompatible with our unordered bag-of-peaks representation. ELECTRA sidesteps both issues by using a discriminative objective that does not require predicting exact tokens from a large vocabulary. However, with improved tokenization that reduces context size and establishes inherent order, we could revisit MLM and explore alternative pretraining objectives that were previously infeasible, potentially unlocking better learned representations.
 
-// PARAGRAPH 4: Technical Challenges
-// - Defining "importance" without ground-truth labels
-// - Risk of removing biologically relevant but rare peaks
-// - Balancing informativeness with coverage
-// - Computational cost of ordering or distance calculations
-// - Validation: how to prove importance scoring improves downstream tasks?
+==== Proposed approach: Importance scoring
+The first component of improved tokenization involves developing scoring functions to rank genomic regions by regulatory importance. Several complementary strategies could be employed:
 
-// PARAGRAPH 5: Expected Impact
-// - Fit more biological context into fixed-size transformer windows
-// - Focus model attention on functionally relevant regulatory elements
-// - Enable longer effective context (more cells or regions per batch)
-// - Improve interpretability by highlighting key regulatory regions
-// - Reduce training time and inference cost by processing fewer tokens
+1. *Cell-type specificity metrics* would identify regions with high variance across cell types, as these likely encode cell-type-defining regulatory programs rather than housekeeping functions.
+
+2. *Signal overlap quality* could assess whether a region shows weak or strong accessibility signal, prioritizing high-confidence peaks with robust coverage.
+
+3. *ChromHMM state annotations* could weight regions based on their predicted chromatin state, prioritizing active promoters and enhancers over quiescent or heterochromatic regions.
+
+4. *Transcription factor binding density*, quantified using ChIP-seq or motif-based bigWig signal tracks, could identify regions enriched for regulatory factor occupancy.
+
+These metrics could be combined into a composite importance score, either through manual weighting or by training a machine learning classifier to predict regulatory impact based on downstream gene expression effects.
+
+==== Proposed approach: Ordering strategies
+The second component involves establishing an explicit ordering over regions, moving beyond the current "bag-of-peaks" representation. One straightforward approach would be to order regions by their importance scores, creating a ranked sequence where the most critical regulatory elements appear first in the token sequence. Alternatively, we could order regions by genomic distance, preserving spatial relationships between nearby regulatory elements that may form functional modules. This could be implemented through learned positional embeddings that encode genomic coordinates, allowing the model to capture distance-dependent interactions. A more sophisticated approach, inspired by ChromFound's complex genomic positional embeddings, would combine learnable chromosome embeddings in addition to other spatial features like distance along the genome. Balancing these ordering strategies with computational tractability remains a key challenge, as distance-aware attention mechanisms can introduce additional overhead.
+
+==== Expected impact
+Improved tokenization strategies are expected to yield two major benefits. First, by incorporating spatial relationships and regulatory importance into token representations, we anticipate improved performance across downstream tasks including cell-type clustering, region annotation, and cellular state prediction. Ordering regions by importance or genomic position would allow attention mechanisms to capture biologically meaningful relationships that are currently obscured by the bag-of-peaks representation. This richer contextualization should translate directly to more accurate embeddings and better generalization across diverse biological contexts.
+
+Second, and equally important, importance scoring would enable sustained performance with substantially reduced context window sizes. By retaining only the top K most critical regions per cell, we could maintain or even improve model accuracy while processing far fewer tokens. This would yield a more efficient and practically usable model—reducing training time, lowering inference costs, and enabling deployment on less powerful hardware. The ability to achieve comparable or superior performance with smaller context windows would democratize access to these foundation models and accelerate iteration during methods development.

@@ -1,73 +1,13 @@
-=== Aim 3: Computational Scalability — Efficient Architectures and Extended Context Windows
+=== Future aim 4: Context window optimization — exploring the extremes
 
-// PARAGRAPH 1: Motivation and Dual Challenge
-// - Current limitation: computational demands present barriers in two directions
-// - Challenge 1 (Scaling Down): Making models accessible to resource-constrained researchers
-//   * Training Atacformer required substantial GPU resources and time
-//   * Inference times remain non-trivial for large datasets, often requiring specialized hardware
-//   * Many research labs lack access to high-performance computing
-//   * Goal: make foundation models accessible to any researcher with laptop
-// - Challenge 2 (Scaling Up): Extending context length for comprehensive genomic coverage
-//   * Current models limited in maximum context length (2K-8K tokens)
-//   * scATAC-seq: sparse, 2K-20K peaks per cell (currently manageable)
-//   * Bulk ATAC-seq: dense, 50K-200K peaks in a single experiment (beyond current capacity)
-//   * Opportunity: analyze entire regulatory landscapes, including bulk ATAC-seq and multiomic datasets
-// - Both challenges require rethinking attention mechanisms
-// - NLP has addressed both: sentence-transformers (efficiency) and Longformer/BigBird (long context)
+==== Motivation
+Throughout Atacformer development, we employed a fixed context window of 8,192 tokens, chosen to accommodate the majority of single cells while remaining computationally tractable. However, this one-size-fits-all approach leaves substantial room for optimization in _both_ directions. Preliminary analysis revealed that while many cells benefit from large context windows, a significant proportion may be adequately represented with far fewer tokens (@atacformer-context-window-analysis), particularly when coupled with improved tokenization strategies that prioritize the most informative regions. Conversely, our ability to analyze bulk ATAC-seq data remains severely limited, as bulk datasets often contain 50,000–200,000 accessible regions per sample, far exceeding our current capacity. Exploring both extremes—smaller context windows for efficiency and larger windows for comprehensive genomic coverage—would unlock new capabilities and broaden the applicability of foundation models in regulatory genomics.
 
-// PARAGRAPH 2: Proposed Approach (Part 1: Scaling Down — Model Compression and Efficient Inference)
-// - Knowledge distillation: train smaller "student" model from large "teacher"
-//   * Analogous to DistilBERT or MiniLM in NLP
-//   * Target: 10-100x speedup with <5% performance degradation
-// - Quantization: reduce precision (float32 → int8) with minimal accuracy loss
-// - Pruning: remove less important parameters
-// - Efficient attention alternatives:
-//   * Linear attention mechanisms (e.g., Performer, Linformer)
-//   * Sparse attention patterns (local windows + global tokens)
-//   * State space models (Mamba, S4) as Transformer alternatives
-// - Hybrid models: full attention for pretraining, efficient for inference
-// - Optimize for CPU inference (different bottlenecks than GPU)
+==== Proposed approach: Scaling down with efficient architectures
+The first direction involves determining how small context windows can be while maintaining performance. This could be achieved by combining tokenization strategies with importance scoring to retain only the most informative regions. We propose systematic experimentation with reduced context sizes (e.g., 512, 1,024, 2,048 tokens) to identify the optimal trade-off between biological coverage and computational efficiency. This would be paired with advanced self-attention implementations such as state space models (Mamba, S4) @Gu2024 @Dao2022 that offer subquadratic scaling with sequence length, dramatically reducing training and inference time. Additional efficiency gains could come from model compression techniques like quantization to create lightweight variants suitable for CPU-based inference. The goal is to produce models analogous to the sentence-transformer family in natural language processing @Reimers2019: fast, efficient, and deployable in local environments without specialized hardware, enabling researchers with limited computational resources to leverage foundation model representations.
 
-// PARAGRAPH 3: Proposed Approach (Part 2: Scaling Up — Long-Context Architectures)
-// - Adapt sparse attention mechanisms for extended context:
-//   * Longformer: local attention + global attention on key tokens
-//   * BigBird: random attention + local + global patterns
-//   * Memory-efficient attention (Flash Attention)
-// - Target: 100K+ token capacity (full bulk ATAC-seq sample)
-// - Hierarchical modeling: first encode local regions, then global context
-// - Bulk-specific pretraining:
-//   * Train on bulk ATAC-seq datasets (ENCODE, Roadmap Epigenomics)
-//   * Task: predict masked regions or signal intensity
-//   * Transfer to scATAC-seq: use bulk-pretrained model as initialization
-//   * Hybrid training: alternate between bulk (long context) and single-cell (sparse context)
-// - Note: sparse attention strategies benefit both efficiency and long context
+==== Proposed approach: Scaling up for bulk data integration
+The second direction involves extending context windows to accommodate comprehensive bulk ATAC-seq datasets, which contain orders of magnitude more accessible regions than single-cell data. Our initial bulk data analysis was constrained to BED files with only a few thousand regions to fit within the 8,192-token limit, severely restricting the diversity and complexity of bulk datasets we could analyze (@atacformer-bedbase). To address this, we propose exploring cutting-edge long-context architectures such as sparse attention mechanisms (Longformer @Beltagy2020, BigBird @Zaheer2021), memory-efficient implementations (Flash Attention @Dao2022), or hybrid architectures inspired by ChromFound @Jiao2025 that combine local and global attention patterns. Target context lengths of 50,000–100,000 tokens would enable processing of full bulk ATAC-seq samples, allowing the model to capture long-range regulatory interactions and global chromatin architecture. While these approaches may require high-performance computing environments, the ability to integrate bulk data alongside single-cell data would create a unified framework for analyzing chromatin accessibility across experimental modalities. This capability would be particularly valuable for platforms like BEDbase, which curates large collections of bulk genomic datasets.
 
-// PARAGRAPH 4: Technical Challenges
-// - Scaling down challenges:
-//   * Maintaining performance during compression
-//   * Identifying which components are essential vs. redundant
-//   * Balancing model size with hosting/distribution
-//   * Validation across diverse hardware environments
-// - Scaling up challenges:
-//   * Memory requirements scale quadratically with sequence length (even with sparse attention)
-//   * Training instability with very long sequences
-//   * Validating that model actually uses long-range context (vs. local shortcuts)
-//   * Computational cost: training on 100K-token sequences is expensive
-//   * Balancing bulk and single-cell objectives (different data characteristics)
-// - Unified challenge: finding architectures that are both efficient and expressive
-
-// PARAGRAPH 5: Expected Impact
-// - Scaling down impacts:
-//   * CPU-based inference enables local analysis without cloud resources
-//   * Reduced costs for large-scale studies (no GPU hours required)
-//   * Faster iteration during methods development
-//   * Integration into web-based analysis platforms (browser-compatible)
-//   * Broader community adoption, especially in resource-limited settings
-//   * Educational use: students can run models on personal laptops
-// - Scaling up impacts:
-//   * Enable comprehensive analysis of bulk ATAC-seq with same framework
-//   * Capture long-range regulatory interactions (e.g., distant enhancers)
-//   * Unified model for both bulk and single-cell data
-//   * Better understanding of global regulatory architecture
-//   * Applications: predict impact of structural variants, model entire locus regulation
-// - Combined impact: flexible models that can be deployed at any scale
+==== Expected impact
+Optimizing context windows in both directions would produce complementary benefits. Smaller, efficient models would democratize access to foundation model capabilities, enabling local deployment, faster iteration during analysis, and broader adoption in resource-limited settings. This would parallel the success of sentence-transformers in making NLP embeddings accessible to any researcher with a laptop. Conversely, extended context models would unlock comprehensive analysis of bulk ATAC-seq data, enabling integration of diverse experimental modalities and providing insights into genome-wide regulatory architecture that are currently inaccessible. Together, these advances would create a flexible ecosystem of models tailored to different computational environments and biological questions—from lightweight tools for rapid exploration to heavyweight models for in-depth analysis of complex regulatory landscapes.

@@ -75,3 +75,9 @@
   caption: "Extra supplemental anecdotes of H3K4me3 enrichment in icTSS regions."
 ) <atacformer-extra-ictss-anecdotes>
 #figure-caption-extended(caption: [*a.* Example icTSS regions showing H3K4me3 in Monocytes. *b.* Example icTSS showing H3K4me3 enrichment in B cells.])
+
+#figure(
+  image("/fig/atacformer/extras/multi_dataset_analysis.svg"),
+  caption: "Multi-dataset analysis of Atacformer embeddings."
+) <atacformer-multi-dataset-analysis>
+#figure-caption-extended(caption: [UAMP visualizations of Atacformer embeddings generated from multiple datasets. Cluster colors indicate leiden clusters generated from the combined dataset. Atacformer performs well on datasets inside its training distribution (Brain and blood) while struggling on datasets outside its training distribution (Kidney).])
