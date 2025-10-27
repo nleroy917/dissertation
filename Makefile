@@ -103,7 +103,7 @@ ch6:
 
 release:
 	typst \
-		compile main.typ
+		compile main.typ \
 		--input release=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_RELEASE.pdf"
 

@@ -1,5 +1,7 @@
 #import "@local/dissertation:0.0.1": *
 
+// TODO: make the title slightly more general?
+// tools and models for deep learning analysis of chromatin accessibility data
 #show: dissertation.with(
   title: "Atacformer: Towards a transformer-based foundation model for analysis and interpretation of ATAC-seq Data",
   author: "Nathan J. LeRoy",

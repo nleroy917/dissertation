@@ -1,4 +1,4 @@
-=== Future aim 4: Token-level interpretability and fine-tuning
+=== Future aim 3: Token-level interpretability and fine-tuning
 
 ==== Motivation
 While Atacformer demonstrates strong performance on cell-level tasks such as clustering and annotation, interpretation and analysis of contextualized region embeddings remains underdeveloped. Our initial exploration of token-level embeddings revealed promising signals. For instance, we identified putative latent transcription start sites within weak promoter regions by examining how these regions cluster in embedding space to reveal paradoxic patterns: regions annotated as being far from transcription start sites while clustering with known TSSs (@atacformer-ictss). However, we have only scratched the surface of what token-level analysis could reveal about regulatory grammar and chromatin organization. Two complementary directions could substantially advance our understanding: attention-based relationship discovery and token-level fine-tuning for region annotation tasks.
