@@ -1,7 +1,7 @@
 #import "@local/dissertation:0.0.1": *
 
 #show: dissertation.with(
-  title: "Foundation models and efficient tools for deep learning analysis of chromatin accessibility data",
+  title: "Transformer-based foundation models and high-performance computational tools for chromatin accessibility analysis",
   author: "Nathan J. LeRoy",
   university: "University of Virginia",
   school: "School of Engineering and Applied Science",
