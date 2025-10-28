@@ -1,22 +1,29 @@
-=== Future aim 2: Improved tokenization strategies
+#import "@local/dissertation:0.0.1": figure-caption-extended
 
+#figure(
+  image("/fig/future-directions/improved_tokenization.svg"),
+  caption: [Overview of the improved tokenization strategies and their components.]
+) <future-directions-improved-tokenization>
+#figure-caption-extended(caption: [
+  *a* Schematic of a model vocabulary/universe that is ordered by an importance score. *b*. Overview of determining importance via cell-type specificity. *c.* Overview of determining importance by total corpus coverage. *d.* Overview of determining importance by TSS distance.
+])
+
+=== Future aim 2: Improved tokenization strategies
 ==== Motivation
 The current tokenization strategies for our epigenomic foundation models face two interconnected challenges. First, they indiscriminately include all accessible regions detected in a single cell. Often, several thousand cCREs are co-accessible in any given cell. This results in very large context windows required to capture the full regulatory environment (@atacformer-context-window-distribution). This approach is computationally expensive and inefficient, as many of these regions are housekeeping elements or low-information peaks analogous to stop words in natural language processing. Second, current tokenization treats all regions equally and imposes no inherent order, representing each cell as an unordered "bag of peaks" that discards potentially important spatial relationships between regulatory elements.
 
-These two problems can be addressed simultaneously through importance scoring at tokenization time, an approach successfully employed by other similar models (EpiAgent and Geneformer) @Chen2025 @Theodoris2023 @Chen2024b. By assigning an importance score to each region in the vocabulary, we can retain only the top K most critical regions, effectively reducing context window size while focusing model attention on functionally relevant elements. Additionally, sorting regions by importance establishes a natural ordering that prioritizes regulatory elements most likely to influence cellular state. This dual benefit — reduced context and imposed order — addresses both computational efficiency and biological interpretability.
+These two problems can be addressed simultaneously through importance scoring at tokenization time, an approach successfully employed by other similar models (EpiAgent and Geneformer) @Chen2025 @Theodoris2023 @Chen2024b. By assigning an importance score to each region in the vocabulary, we can retain only the top K most critical regions, effectively reducing context window size while focusing model attention on functionally relevant elements. Additionally, sorting regions by importance establishes a natural ordering that prioritizes regulatory elements most likely to influence cellular state. This dual benefit — reduced context and imposed order — addresses both computational efficiency and biological interpretability (@future-directions-improved-tokenization\A).
 
 Finally and importantly, the choice of tokenization strategy has cascading effects on pretraining objectives. In developing Atacformer, we had to pivot from masked language modeling (MLM) @Devlin2019a to ELECTRA-style @Clark2020 discriminative pretraining because MLM becomes computationally prohibitive for large vocabularies and context windows. Additionally, standard MLM assumes a fixed token order for masking, which is incompatible with our unordered bag-of-peaks representation. ELECTRA sidesteps both issues by using a discriminative objective that does not require predicting exact tokens from a large vocabulary. However, with improved tokenization that reduces context size and establishes inherent order, we could revisit MLM and explore alternative pretraining objectives that were previously infeasible, potentially unlocking better learned representations.
 
 ==== Proposed approach: Importance scoring
 The first component of improved tokenization involves developing scoring functions to rank genomic regions by regulatory importance. Several complementary strategies could be employed:
 
-1. *Cell-type specificity metrics* would identify regions with high variance across cell types, as these likely encode cell-type-defining regulatory programs rather than housekeeping functions.
+1. *Cell-type specificity metrics* would identify regions with high variance across cell types, as these likely encode cell-type-defining regulatory programs rather than housekeeping functions (@future-directions-improved-tokenization\B).
 
-2. *Signal overlap quality* could assess whether a region shows weak or strong accessibility signal, prioritizing high-confidence peaks with robust coverage.
+2. *Signal overlap quality* could assess whether a region shows weak or strong accessibility signal, prioritizing high-confidence peaks with robust coverage (@future-directions-improved-tokenization\C).
 
-3. *ChromHMM state annotations* could weight regions based on their predicted chromatin state, prioritizing active promoters and enhancers over quiescent or heterochromatic regions.
-
-4. *Transcription factor binding density*, quantified using ChIP-seq or motif-based bigWig signal tracks, could identify regions enriched for regulatory factor occupancy.
+3. *Distance to transcription start sites* could prioritize regions proximal to gene promoters, as regulatory elements closer to TSSs often have stronger and more direct effects on gene expression. This could be implemented by assigning higher importance scores to regions within a certain distance threshold of annotated TSSs, with scores decaying as a function of genomic distance (@future-directions-improved-tokenization\D).
 
 These metrics could be combined into a composite importance score, either through manual weighting or by training a machine learning classifier to predict regulatory impact based on downstream gene expression effects.
 

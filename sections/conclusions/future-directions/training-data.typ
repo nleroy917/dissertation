@@ -1,3 +1,8 @@
+#figure(
+  image("/fig/future-directions/expanded_atlas.svg"),
+  caption: [Overview of the expanded training atlas and its components.]
+) <future-directions-expanded-atlas>
+
 === Future aim 1: Scaling the training Atlas
 ==== Motivation
 Atacformer was trained on a substantial corpus of single-cell ATAC-seq data (\~1.2 million cells); however, this training set remains biased toward well-characterized tissues, cell types, and experimental conditions. Specifically, the dataset is currently dominated by brain, immune, and tonsil cells (@atacformer-overview\B). This bias is reflected in model performance, with reduced performance when procession datasets originating from biological contexts outside the models training distribution (kidney, liver, rare cell types; @atacformer-multi-dataset-analysis). In contrast, foundation models in natural language processing (NLP) have demonstrated that massive, diverse training corpora are critical for achieving strong generalization and reducing bias @Brown2020. To achieve similar benefits in regulatory genomics, we propose to scale the training atlas to encompass tens or hundreds of millions of cells spanning all major human tissues, developmental stages, and disease states. Indeed, foundation models for transcriptomics are already being trained on datasets of this scale with an updated Geneformer model being trained on over 100 million cells @Chen2024b and the release of Tahoe-x1, a new transcriptomics foundation model trained on 100 million cells @Gandhi2025. Expanding the training corpus for chromatin accessibility models like Atacformer is a logical next step to improve generalization and reduce bias in downstream analyses.
