@@ -207,7 +207,7 @@ To curate a large multiome dataset, we downloaded and processed four datasets: t
 
 Each dataset was tokenized into the universe as previously described and used for training CRAFT.
 
-CRAFT architecture
+=== CRAFT architecture
 
 The CRAFT architecture closely follows the design of the CLIP model, which jointly trains two separate encoders to project different modalities into a shared latent space. In our implementation, we replaced the original CLIP encoders with domain-specific architectures: the ATAC encoder was substituted with the atacformer, a transformer-based model tailored for chromatin accessibility data, and the RNA encoder was replaced with geneformer, optimized for gene expression profiles:
 

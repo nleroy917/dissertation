@@ -1,5 +1,4 @@
 === Future aim 4: Context window optimization — exploring the extremes
-
 ==== Motivation
 Throughout Atacformer development, we employed a fixed context window of 8,192 tokens, chosen to accommodate the majority of single cells while remaining computationally tractable. However, this one-size-fits-all approach leaves substantial room for optimization in _both_ directions. Preliminary analysis revealed that while many cells benefit from large context windows, a significant proportion may be adequately represented with far fewer tokens (@atacformer-context-window-analysis), particularly when coupled with improved tokenization strategies that prioritize the most informative regions. Conversely, our ability to analyze bulk ATAC-seq data remains severely limited, as bulk datasets often contain 50,000–200,000 accessible regions per sample, far exceeding our current capacity. Exploring both extremes—smaller context windows for efficiency and larger windows for comprehensive genomic coverage—would unlock new capabilities and broaden the applicability of foundation models in regulatory genomics.
 
