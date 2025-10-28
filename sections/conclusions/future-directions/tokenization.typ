@@ -5,7 +5,7 @@
   caption: [Overview of the improved tokenization strategies and their components.]
 ) <future-directions-improved-tokenization>
 #figure-caption-extended(caption: [
-  *a* Schematic of a model vocabulary/universe that is ordered by an importance score. *b*. Overview of determining importance via cell-type specificity. *c.* Overview of determining importance by total corpus coverage. *d.* Overview of determining importance by TSS distance.
+  *a.* Schematic of a model vocabulary/universe that is ordered by an importance score. *b.* Overview of determining importance via cell-type specificity. *c.* Overview of determining importance by total corpus coverage. *d.* Overview of determining importance by TSS distance.
 ])
 ==== Motivation
 The current tokenization strategies for our epigenomic foundation models face two interconnected challenges. First, they indiscriminately include all accessible regions detected in a single cell. Often, several thousand cCREs are co-accessible in any given cell. This results in very large context windows required to capture the full regulatory environment (@atacformer-context-window-distribution). This approach is computationally expensive and inefficient, as many of these regions are housekeeping elements or low-information peaks analogous to stop words in natural language processing. Second, current tokenization treats all regions equally and imposes no inherent order, representing each cell as an unordered "bag of peaks" that discards potentially important spatial relationships between regulatory elements.

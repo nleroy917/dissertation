@@ -6,7 +6,7 @@
   caption: [Overview of the further directions for token-level interpretability and fine-tuning.]
 ) <future-directions-interpretability>
 #figure-caption-extended(caption: [
-  *a* We can investigate region-pairs through the attention matrix. Strong attention scores between two regions might indicate biological relationships. *b.* Using bulk ATAC-seq data, we can fine-tune foundation models to predict chromatin contacts between regions.
+  *a.* We can investigate region-pairs through the attention matrix. Strong attention scores between two regions might indicate biological relationships. *b.* Using bulk ATAC-seq data, we can fine-tune foundation models to predict chromatin contacts between regions.
 ])
 
 ==== Motivation
