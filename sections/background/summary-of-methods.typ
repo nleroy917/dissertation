@@ -4,7 +4,7 @@ Below is a summary of the key computational methods discussed in this chapters:
     columns: (auto, auto, auto, auto, auto),
     align: horizon,
     table.header(
-      [Method], [Released], [Description], [Language], [Type], 
+      [Method], [Released], [Description], [Language], [Type]
     ),
     // early, less robust methods
     [chromVar], [2017], [Quantifies variability in chromatin accessibility across TF motifs/k-mers.], [R], [Tools],

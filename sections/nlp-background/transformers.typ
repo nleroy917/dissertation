@@ -16,7 +16,7 @@ Transformers are a type of neural network architecture that has gained significa
 === Self attention
 The core innovation of transformers is the self-attention mechanism, which allows the model to weigh the importance of different words in a sequence when updating their representations. In self-attention, each word in the input sequence is transformed into three vectors: a query vector, a key vector, and a value vector. The attention score between two words is computed as the dot product of the query vector of one word and the key vector of another word, followed by a softmax operation to obtain a probability distribution. This score determines how much attention one word should pay to another when updating its representation. The final output for each word is then computed as a weighted sum of the value vectors of all words in the sequence, where the weights are given by the attention scores.
 
-Mathematically, the self-attention mechanism can be expressed as follows:
+Mathematically, the self-attention mechanism is expressed as follows:
 $
 "Attention"(Q, K, V) = sigma("QK"^T)/sqrt(d_k) dot V
 $
@@ -25,7 +25,7 @@ where $"Q"$, $"K"$, and $"V"$ are the matrices of query, key, and value vectors 
 
 A key thing to note is that in self-attention, each word can attend to all other words in the sequence, allowing the model to capture complex dependencies and relationships between words regardless of their positions. This is in contrast to RNNs, where the influence of earlier words can diminish over time due to the sequential processing.
 
-While powerful, the self-attention mechanism can be computationally intensive, especially for long sequences, as it requires computing attention scores for all pairs of words. This leads to $O(n^2)$ complexity, where $n$ is the length of the input sequence.
+While powerful, the self-attention mechanism is computationally intensive, especially for long sequences, as it requires computing attention scores for all pairs of words. This leads to $O(n^2)$ complexity, where $n$ is the length of the input sequence.
 
 This complexity resulted in difficulties when scaling up transformers to very long sequences, such as entire documents or whole genomic region sets. To address this, various modifications and optimizations have been proposed, such as sparse attention mechanisms, which limit the number of words each word can attend to, and hierarchical transformers, which process sequences at multiple levels of granularity.
 

@@ -25,14 +25,15 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="2.0636023"
-     inkscape:cx="242.29475"
-     inkscape:cy="65.419583"
+     inkscape:cx="242.53704"
+     inkscape:cy="65.419582"
      inkscape:window-width="2560"
      inkscape:window-height="1381"
      inkscape:window-x="0"
      inkscape:window-y="905"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" /><defs
+     inkscape:current-layer="g42"
+     showgrid="false" /><defs
      id="defs1"><style
        type="text/css"
        id="style6">&#10;   &#10;    .fil1 {fill:none}&#10;    .fil0 {fill:black}&#10;   &#10;  </style><inkscape:path-effect
@@ -2222,7 +2223,7 @@
              style="font-size:1.97963px;text-align:center;text-anchor:middle;fill:#fafaf9;stroke-width:0.264583"
              x="60.742027"
              y="26.434582"
-             id="tspan13">CC universe</tspan></text></g><g
+             id="tspan13">CC(F) universe</tspan></text></g><g
          id="g42-7"
          transform="translate(-1.8799631,9.0678855)"><rect
            style="fill:#1c1917;stroke:#1c1917;stroke-width:0.23;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:99.9;paint-order:stroke markers fill"
