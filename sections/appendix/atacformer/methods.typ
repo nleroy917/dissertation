@@ -166,30 +166,15 @@ Evaluating model performance on real, pre-annotated datasets is subjected to the
 === PBMC dataset cell-type annotation <atacformer-pbmc-annotation-methods>
 Because ground-truth labels are necessary for adequately assessing the clustering performance of cell-embeddings, we performed cell-type annotation on all three datasets. Each annotation was performed in an identical manner. To do so, we followed a very similar approach to the cell-type annotation approach described by LeRoy _et. al._ [@LeRoy2024]. Briefly, we leveraged a pre-trained scEmbed model trained specifically on a high-quality blood dataset, Luecken2021[@Luecken2021]. Embeddings were generated for both the reference dataset (Luecken2021) and the query datasets (PBMC 1/5/10k). Then, using the shared latent space, we performed a K-nearest-neighbors (KNN) label transfer task. We used `scEmbed` from the `geniml` module on GitHub: "https://github.com/databio/geniml" and the `KNeighborsClassifier` from `sklearn.neighbors`. Due to the intrinsic sparsity of many detailed T-cell subtypes, we collapsed these rare variants into broader T-cell categories. This aggregation prevents overfragmentation during clustering, ensuring a more statistically robust and biologically meaningful representation of T-cell populations.
 
-
-// Fragment file ingestion and tokenization
-
-// Fragment files are ingested using our gtars package.
-
-// Fragment agreement evaluation metrics
-
-// Processing time
-// To measure processing time, we leverage the python standard library `time` module.
+=== Labeling data with scVI <atacformer-scvi-labeling-methods>
+To label the brain dataset, we utilized the `scvi-tools` package @Gayoso2022. Specifically, we used the `scanvi` model to perform semi-supervised cell-type annotation. We first created an `AnnData` object from the raw count matrix and then split the data into labeled and unlabeled sets. The labeled set consisted of 20% of the total cells, while the remaining 80% were unlabeled. We then trained the `scanvi` model on the labeled data for 400 epochs with default parameters. After training, we used the model to predict cell-type labels for the unlabeled cells. Finally, we combined the predicted labels with the original labeled data to obtain a complete set of cell-type annotations for the entire dataset.
 
 === Bulk training data selection <atacformer-bulk-training-data-methods>
-
 To generate a large dataset for fine-tuning on bulk data, we first started with all bed-files annotated with hg38 on BEDbase. Because Atacformer has a context window of 8,192 tokens, we next filtered down these bedfiles into a subset that could reasonable fit within this context window, subsampling tokens as necessary. We set the cutoff for number of regions in the bedfile to be 81,920 (10x the context window).
 
 We tokenized the BED files that met this criteria and used them as input into the training pipeline, subsampling tokens from the file when necessary.
 
-=== TSS distance annotation of our universe <atacformer-tss-annotation>
-
-To annotate the distance to the nearest TSS to each token in our vocabulary, we first downloaded the most recent comprehensive gene annotation (GTF) file from GENCODE("https://www.gencodegenes.org/human/release_38.html"). We filtered this file to obtain just the TSS annotations using common unix command-line tools like `awk` and `sort`.
-
-Next we leveraged `bedtools` to obtain distances to the nearest TSS. Specifically, we used the `bedbase closest` command with the `-t first` flag to ensure each region in our universe was only associated with one TSS.
-
 === Spearman correlation <atacformer-spearman-methods>
-
 The spearman corrrelation can be computed as follows:
 
 $
@@ -200,9 +185,11 @@ where $d_{i}$ is the difference between the two ranks of each
 observation and $n$ is the number of observations. To compute the value,
 we leveraged the `scipy.stats` module and the `spearmanr` function.
 
+=== Bulk ATAC-seq data imputation <atacformer-bulk-imputation-methods>
+To evaluate Atacformer's ability to impute missing regions in bulk ATAC-seq data, we curated distinct training and test sets from BEDbase. A significant portion of samples on BEDbase lacked explicit cell-line annotations, with the metadata field often marked as `null`. We discovered that for many of these cases, the cell line could be inferred by parsing the sample's free-text description. For instance, if a description contained "HEK293", we assigned that sample the "HEK293" cell-line label. Our test set was constructed exclusively from these samples where the cell line was inferred. The training set, in contrast, was composed of all samples from BEDbase that had explicit, non-null cell-line annotations. This strategy provided a natural train/test split for evaluating the model's performance on a realistic imputation task.
+
 
 === Multiome data processing <atacformer-multiome-methods>
-
 To curate a large multiome dataset, we downloaded and processed four datasets: three from the 10X genomics dataset repository and then the previously described Luecken2021 dataset @Luecken2021. The three 10X datasets were: 1) brain3k multiome "https://www.10xgenomics.com/datasets/frozen-human-healthy-brain-tissue-3-k-1-standard-2-0-0, 2) kidney22k "https://www.10xgenomics.com/datasets/human-kidney-cancer-nuclei-isolated-with-chromium-nuclei-isolation-kit-saltyez-protocol-and-10x-complex-tissue-dp-ct-sorted-and-ct-unsorted-1-standard", and 3) pbmc10k multiome "https://www.10xgenomics.com/datasets/10-k-human-pbm-cs-multiome-v-1-0-chromium-controller-1-standard-2-0-0". For each dataset, we downloaded the cell by feature matrix as a matrix-market file (`.mtx`), the barcodes as a `.txt` file, and the features as a `.tsv` file. We combined these files into an `.h5ad` file for each dataset using the `scanpy`, `pandas` and `scipy` python packages.
 
 Each dataset was tokenized into the universe as previously described and used for training CRAFT.
@@ -254,7 +241,7 @@ To obtain the shared latent space embedding from the ATAC data, we first encoded
 
 The overall architecture thus consisted of an ATAC encoder, which mapped the input ATAC features to a latent representation, and an RNA decoder, which predicted the RNA expression profile from this latent space.
 
-=== Annotation of Atacformer universe for TSS distance and region type
+=== Annotation of Atacformer universe for TSS distance and region type <atacformer-region-type-annotation>
 To annotate the distance to the nearest TSS to each token in our vocabulary, we first downloaded the most recent comprehensive gene annotation (GTF) file from GENCODE("https://www.gencodegenes.org/human/release_38.html"). We filtered this file to obtain just the TSS annotations using common unix command-line tools like `awk` and `sort`. Next we leveraged `bedtools` to obtain distances to the nearest TSS. Specifically, we used the `bedbase closest` command with the `-t first` flag to ensure each region in our universe was only associated with one TSS.
 
 Similarly, we downloaded the latest cCRE annotations from ENCODE screen (https://screen.encodeproject.org) for hg38. We utilized bedtools intersect to annotate each region with a discrete label (pELS, dELS, CTCF, etc).
