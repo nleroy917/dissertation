@@ -107,6 +107,11 @@ release:
 		--input release=true \
 		"out/pdfs/$(GITHASH)_$(DATE)_RELEASE.pdf"
 
+sabstract:
+	typst \
+		compile short_abstract.typ \
+		"out/pdfs/$(GITHASH)_$(DATE)_SABSTRACT.pdf"
+
 typos:
 	typos sections/*
 
