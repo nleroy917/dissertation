@@ -5,16 +5,15 @@
   author: "Nathan J. LeRoy",
   university: "University of Virginia",
   school: "School of Engineering and Applied Science",
-  degree: "Doctor of Philosophy",
-  dedication: "To my family and friends, for their unwavering support and encouragement.",
+  degree: "Doctor of Philosophy"
 )
-
-= Abstract
-#include "sections/abstract.typ"
-#pagebreak()
 
 = Acknowledgements
 #include "sections/acknowledgements.typ"
+#pagebreak()
+
+= Abstract
+#include "sections/abstract.typ"
 #pagebreak()
 
 = Table of contents
