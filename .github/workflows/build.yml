@@ -4,7 +4,9 @@ name: Build document
 on: [push, workflow_dispatch]
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -15,6 +17,12 @@ jobs:
       
       - name: Setup typst
         uses: typst-community/setup-typst@v4
+
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ttf-mscorefonts-installer fontconfig
+          fc-cache -fv
 
       - name: Grab dissertation template
         run: |
@@ -46,3 +54,32 @@ jobs:
         with:
           name: "${{ github.ref_name }} — ${{ env.DATE }}"
           files: main.pdf
+      
+      - name: Create index
+        run: |
+          mkdir public
+          cp main.pdf public/
+          cat > public/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset='utf-8'>
+            <title>Document Build</title>
+            <style>
+              body { margin: 0; padding: 0; overflow: hidden; }
+              iframe { width: 100vw; height: 100vh; border: none; }
+            </style>
+          </head>
+          <body>
+            <iframe src='main.pdf' type='application/pdf'></iframe>
+          </body>
+          </html>
+          EOF
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
+        
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
