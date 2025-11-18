@@ -46,3 +46,17 @@ jobs:
         with:
           name: "${{ github.ref_name }} — ${{ env.DATE }}"
           files: main.pdf
+      
+      - name: Create index
+        run: |
+          mkdir public
+          cp main.pdf public/
+          echo "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Document Build</title></head><body><h1>Document Build</h1><ul><li><a href='main.pdf'>Download PDF</a></li></ul></body></html>" > public/index.html
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: public/
+        
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
