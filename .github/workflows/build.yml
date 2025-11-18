@@ -18,6 +18,11 @@ jobs:
       - name: Setup typst
         uses: typst-community/setup-typst@v4
 
+      - name: Install fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-liberation fonts-liberation2
+
       - name: Grab dissertation template
         run: |
           mkdir -p ~/.local/share/typst/packages/local/dissertation
@@ -53,7 +58,22 @@ jobs:
         run: |
           mkdir public
           cp main.pdf public/
-          echo "<!DOCTYPE html><html><head><meta charset='utf-8'><title>Document Build</title></head><body><h1>Document Build</h1><ul><li><a href='main.pdf'>Download PDF</a></li></ul></body></html>" > public/index.html
+          cat > public/index.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset='utf-8'>
+            <title>Document Build</title>
+            <style>
+              body { margin: 0; padding: 0; overflow: hidden; }
+              iframe { width: 100vw; height: 100vh; border: none; }
+            </style>
+          </head>
+          <body>
+            <iframe src='main.pdf' type='application/pdf'></iframe>
+          </body>
+          </html>
+          EOF
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
